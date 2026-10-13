@@ -1,0 +1,2944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moira Lake Angler & Field Guide | Bailey's Cottages Madoc (Est. 1943)</title>
+  <meta name="description" content="Official Moira Lake fishing, boating, and Madoc Ontario field guide from Bailey's Cottages. Seasonal Muskie, Walleye, and Bass calendar, boat rentals, and local gems.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Leaflet Interactive Map CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pine: {
+              800: '#153325',
+              900: '#0E2419',
+              950: '#07160F',
+            },
+            amber: {
+              600: '#D97706',
+              700: '#B45309',
+              800: '#92400E',
+            },
+            camp: {
+              cream: '#FBF9F4',
+              parchment: '#F3EFE6',
+              border: '#E3DCce',
+              bark: '#3B2F2F',
+            }
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    .heritage-border {
+      border: 1px solid #d4c8b5;
+      box-shadow: 0 4px 20px -2px rgba(15, 36, 25, 0.08);
+    }
+    .badge-stamp {
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    section[id] {
+      scroll-margin-top: 5.5rem;
+    }
+  </style>
+</head>
+<body class="bg-camp-cream text-camp-bark font-sans antialiased selection:bg-pine-800 selection:text-white">
+
+  <!-- TOP ANNOUNCEMENT BANNER -->
+  <div class="bg-pine-950 text-amber-200/90 text-xs py-2 px-4 border-b border-pine-800/60 font-medium">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="badge-stamp font-cinzel text-[11px] text-amber-300">Moira Lake Waterfront • Madoc, Ontario</span>
+        <span class="hidden md:inline text-camp-border/50">|</span>
+        <span class="hidden md:inline text-zinc-300">Family-Run 4 Generations Since 1943</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px]">
+        <span class="text-zinc-300">Trophy Muskie & Bass Season Booking Open</span>
+        <a href="tel:6138130455" class="hover:text-white flex items-center gap-1 font-semibold text-amber-300">
+          <i data-lucide="phone" class="w-3 h-3"></i> (613) 813-0455
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-camp-cream/95 backdrop-blur-md border-b border-camp-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="relative w-14 h-14 rounded-full overflow-hidden border-2 border-amber-600/60 shadow-md group-hover:scale-105 transition-transform bg-pine-950 flex-shrink-0">
+          <img src="assets/baileys_emblem.jpg" alt="Bailey's Cottages Official Emblem" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <div class="font-cinzel font-bold text-xl tracking-wider text-pine-900 flex items-center gap-2">
+            BAILEY'S COTTAGES
+          </div>
+          <div class="text-[10px] tracking-[0.2em] uppercase font-bold text-amber-700">
+            Moira Lake • Est. 1943
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-7 font-medium text-sm text-pine-900/80">
+        <a href="#species" class="hover:text-pine-900 hover:font-semibold transition-colors">Species Guide</a>
+        <a href="#calendar" class="hover:text-pine-900 hover:font-semibold transition-colors">Seasonal Calendar</a>
+        <a href="#lake-map" class="hover:text-pine-900 hover:font-semibold transition-colors">Topography Map</a>
+        <a href="#rentals" class="hover:text-pine-900 hover:font-semibold transition-colors">Boat & Gear Rentals</a>
+        <a href="#local-guide" class="hover:text-pine-900 hover:font-semibold transition-colors">Madoc Field Guide</a>
+        <a href="#gallery" class="hover:text-pine-900 hover:font-semibold transition-colors">Camp Gallery</a>
+        <a href="#cabins" class="hover:text-pine-900 hover:font-semibold transition-colors">Cabins 1 to 6</a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-3">
+        <button onclick="openBookingModal('General Stay')" class="bg-pine-900 hover:bg-pine-800 text-white font-cinzel text-xs tracking-wider px-5 py-3 rounded shadow hover:shadow-lg transition-all flex items-center gap-2 border border-pine-800">
+          <i data-lucide="calendar" class="w-4 h-4 text-amber-400"></i>
+          <span>RESERVE CABIN ($150-$175)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-pine-950 text-white overflow-hidden py-16 lg:py-24 border-b border-pine-900">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0 opacity-30 mix-blend-luminosity">
+      <img src="assets/boat_launch.jpg" alt="Moira Lake Boat Launch" class="w-full h-full object-cover">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-pine-950 via-pine-950/80 to-pine-900/40 z-0"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+        
+        <!-- Left: Text & Stats -->
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-600/20 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4">
+            <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+            Official Angler & Outdoors Field Guide
+          </div>
+          
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
+            The Moira Lake Angler & Field Guide
+          </h1>
+          
+          <p class="text-lg sm:text-xl text-zinc-300 leading-relaxed font-light mb-8">
+            Your 4th-generation guide to trophy Muskie, Walleye, and Smallmouth Bass on Moira Lake. Plus boat rentals, direct launch access, and local treasures in historic Madoc, Ontario.
+          </p>
+
+          <!-- Lake Vital Stats -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-pine-900/80 border border-pine-800 backdrop-blur-sm">
+            <div class="border-r border-pine-800/80 pr-2">
+              <span class="text-xs uppercase tracking-wider text-amber-400 block font-cinzel">Lake Size</span>
+              <span class="text-xl font-bold text-white">850+ Acres</span>
+            </div>
+            <div class="border-r border-pine-800/80 pr-2">
+              <span class="text-xs uppercase tracking-wider text-amber-400 block font-cinzel">Max Depth</span>
+              <span class="text-xl font-bold text-white">62 Feet</span>
+            </div>
+            <div class="border-r border-pine-800/80 pr-2">
+              <span class="text-xs uppercase tracking-wider text-amber-400 block font-cinzel">Key Species</span>
+              <span class="text-xl font-bold text-white">Muskie & Bass</span>
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-wider text-amber-400 block font-cinzel">Direct Launch</span>
+              <span class="text-xl font-bold text-white">On-Site Slips</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Official Brand Emblem Showcase -->
+        <div class="flex-shrink-0 flex justify-center">
+          <div class="relative group">
+            <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-amber-500/30 via-emerald-500/20 to-amber-600/30 blur-2xl opacity-75 group-hover:opacity-100 transition duration-1000"></div>
+            <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-amber-500/50 shadow-2xl bg-pine-950 flex items-center justify-center">
+              <img src="assets/baileys_emblem.jpg" alt="Welcome to Bailey's Cottages Official Emblem" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK ACTION SHORTCUTS -->
+  <section class="bg-camp-parchment border-b border-camp-border py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center justify-between gap-4 text-xs font-semibold uppercase tracking-wider text-pine-900">
+        <div class="flex items-center gap-2">
+          <i data-lucide="shield-check" class="w-4 h-4 text-amber-700"></i>
+          <span>Zero Booking Surcharges • Book Direct & Save 15-20% OTA Fees</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <span class="flex items-center gap-1.5"><i data-lucide="anchor" class="w-3.5 h-3.5 text-pine-800"></i> Private Boat Ramp</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="flame" class="w-3.5 h-3.5 text-amber-700"></i> Hardwood Firewood $10</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-pine-800"></i> Hot Shower Comfort Station</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIES GUIDE SECTION: GROUPED BY SPECIES -->
+  <section id="species" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="badge-stamp text-xs font-bold text-amber-700 block mb-2 font-cinzel">Moira Lake Target Species • Verified Catch Archive</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-pine-900 mb-4">What’s Biting in Moira Lake? Grouped by Species</h2>
+      <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+        Every catch photograph below was taken directly on Moira Lake by guests of Bailey's Cottages. Browse all 19 verified catches grouped by biological species alongside official Ontario FMZ 18 seasons, regulations, target depth zones, and local field tactics.
+      </p>
+    </div>
+
+    <!-- Species Interactive Filter Navigation Tabs -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+      <button onclick="filterSpeciesGuide('all')" id="btn-spec-all" class="px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded-lg bg-pine-900 text-white shadow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+        All Species (19 Real Catches)
+      </button>
+      <button onclick="filterSpeciesGuide('muskie')" id="btn-spec-muskie" class="px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded-lg border border-camp-border bg-white text-stone-700 hover:bg-stone-100 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+        Muskellunge (4)
+      </button>
+      <button onclick="filterSpeciesGuide('walleye')" id="btn-spec-walleye" class="px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded-lg border border-camp-border bg-white text-stone-700 hover:bg-stone-100 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+        Walleye / Pickerel (4)
+      </button>
+      <button onclick="filterSpeciesGuide('bass')" id="btn-spec-bass" class="px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded-lg border border-camp-border bg-white text-stone-700 hover:bg-stone-100 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+        Largemouth & Smallmouth Bass (5)
+      </button>
+      <button onclick="filterSpeciesGuide('pike')" id="btn-spec-pike" class="px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded-lg border border-camp-border bg-white text-stone-700 hover:bg-stone-100 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+        Northern Pike (5)
+      </button>
+      <button onclick="filterSpeciesGuide('panfish')" id="btn-spec-panfish" class="px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded-lg border border-camp-border bg-white text-stone-700 hover:bg-stone-100 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+        Black Crappie & Panfish (1)
+      </button>
+    </div>
+
+    <!-- SPECIES DOSSIERS & PHOTO GALLERIES -->
+    <div class="space-y-12">
+
+      <!-- ============================================== -->
+      <!-- SPECIES GROUP 1: MUSKELLUNGE (MUSKIE) (4 PHOTOS) -->
+      <!-- ============================================== -->
+      <div class="species-group-block bg-white rounded-2xl heritage-border shadow-sm p-6 sm:p-8 transition-all" data-species-group="muskie">
+        <div class="flex flex-col lg:flex-row lg:items-start justify-between pb-6 border-b border-camp-border gap-6 mb-6">
+          <div class="max-w-xl">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded bg-rose-100 text-rose-900 border border-rose-200 text-[11px] font-bold font-cinzel">FMZ 18 APEX PREDATOR</span>
+              <span class="text-xs font-semibold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">1st Sat in June to Dec 15</span>
+              <span class="text-xs font-bold text-pine-900 bg-pine-50 px-2.5 py-0.5 rounded border border-pine-200">4 Authentic Catches</span>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-pine-900">Muskellunge (Muskie)</h3>
+            <p class="text-xs sm:text-sm text-stone-600 font-mono mt-0.5">Esox masquinongy • Up to 50+ Inches in Moira Lake</p>
+            <p class="text-stone-700 text-sm leading-relaxed mt-3">
+              Known as the "fish of 10,000 casts," Moira Lake delivers one of the highest muskie encounter rates in eastern Ontario. Giant specimens roam the deep channels, eastern weedline drop-offs, and island shelves. Bailey's strongly supports catch-and-release to preserve this world-class trophy fishery.
+            </p>
+          </div>
+
+          <div class="text-xs text-stone-700 space-y-2 bg-camp-cream p-4 rounded-xl border border-camp-border lg:w-80 flex-shrink-0">
+            <div class="font-bold text-pine-900 border-b border-camp-border pb-1 font-cinzel">FMZ 18 Regulations & Playbook</div>
+            <div class="flex justify-between"><span class="font-semibold">Minimum Size:</span><span>44 Inches (112 cm)</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Daily Limit:</span><span>1 Fish (Sport / Conserv.)</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Target Depths:</span><span>12 to 24 ft Weed Edges</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Prime Lures:</span><span>Bulldawgs, #10 Bucktails, Believers</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Prime Hotspots:</span><span>Papoose Channel, Plum Point Drop</span></div>
+          </div>
+        </div>
+
+        <!-- Muskie Catch Gallery Grid (4 Photos) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Catch Card: muskie_1 -->
+          <div onclick="openCatchLightbox('muskie_1')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('muskie_1'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/muskie_01_bump_board.jpg" alt="45+ Inch Monster Muskie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">MEASURED TROPHY</span>
+                <h4 class="text-xs font-bold leading-snug">45+ Inch Monster Muskie</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: muskie_2 -->
+          <div onclick="openCatchLightbox('muskie_2')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('muskie_2'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/muskie_02_dock_vertical.jpg" alt="Dockside Heavyweight Muskie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">MARINA DOCK CATCH</span>
+                <h4 class="text-xs font-bold leading-snug">Dockside Heavyweight Muskie</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: muskie_3 -->
+          <div onclick="openCatchLightbox('muskie_3')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('muskie_3'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/muskie_03_summer_boat.jpg" alt="Summer Basin Muskie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">SUMMER CASTING</span>
+                <h4 class="text-xs font-bold leading-snug">Summer Basin Muskie</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: muskie_4 -->
+          <div onclick="openCatchLightbox('muskie_4')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('muskie_4'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/muskie_04_horizontal_hold.jpg" alt="Eastern Weedline Muskie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">TROLLING CATCH</span>
+                <h4 class="text-xs font-bold leading-snug">Eastern Weedline Muskie</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- SPECIES GROUP 2: WALLEYE / PICKEREL (4 PHOTOS) -->
+      <!-- ============================================== -->
+      <div class="species-group-block bg-white rounded-2xl heritage-border shadow-sm p-6 sm:p-8 transition-all" data-species-group="walleye">
+        <div class="flex flex-col lg:flex-row lg:items-start justify-between pb-6 border-b border-camp-border gap-6 mb-6">
+          <div class="max-w-xl">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-200 text-[11px] font-bold font-cinzel">TABLE FARE FAVORITE</span>
+              <span class="text-xs font-semibold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">2nd Sat in May to End of Feb</span>
+              <span class="text-xs font-bold text-pine-900 bg-pine-50 px-2.5 py-0.5 rounded border border-pine-200">4 Authentic Catches</span>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-pine-900">Walleye (Yellow Pickerel)</h3>
+            <p class="text-xs sm:text-sm text-stone-600 font-mono mt-0.5">Sander vitreus • 16" to 26" Quality Class</p>
+            <p class="text-stone-700 text-sm leading-relaxed mt-3">
+              Prized across Ontario for its delicate sweet meat and exhilarating evening feeding binges. Walleye stage along deep rock humps and mud flats during the day, moving onto gravel shelves and rocky points 30 minutes before sunset.
+            </p>
+          </div>
+
+          <div class="text-xs text-stone-700 space-y-2 bg-camp-cream p-4 rounded-xl border border-camp-border lg:w-80 flex-shrink-0">
+            <div class="font-bold text-pine-900 border-b border-camp-border pb-1 font-cinzel">FMZ 18 Regulations & Playbook</div>
+            <div class="flex justify-between"><span class="font-semibold">Sport Limit:</span><span>4 Fish (Conservation: 2)</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Slot Protection:</span><span>None between 40-53 cm (16-21 in)</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Target Depths:</span><span>15 to 30 ft Humps & Drop-offs</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Prime Lures:</span><span>1/4 oz Jigs w/ Minnow/Leech, Crawler Harness</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Prime Hotspots:</span><span>Stony Island Reef, North Deep Basin Edge</span></div>
+          </div>
+        </div>
+
+        <!-- Walleye Catch Gallery Grid (4 Photos) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Catch Card: walleye_1 -->
+          <div onclick="openCatchLightbox('walleye_1')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('walleye_1'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/walleye_01_trophy_winter.jpg" alt="Moira Lake Giant Walleye" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">TROPHY WALLEYE</span>
+                <h4 class="text-xs font-bold leading-snug">Moira Lake Giant Walleye</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: walleye_2 -->
+          <div onclick="openCatchLightbox('walleye_2')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('walleye_2'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/walleye_02_five_stringer.jpg" alt="Golden Walleye Keepers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">EVENING STRINGER</span>
+                <h4 class="text-xs font-bold leading-snug">Golden Walleye Keepers</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: walleye_3 -->
+          <div onclick="openCatchLightbox('walleye_3')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('walleye_3'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/walleye_03_measured_board.jpg" alt="Measured Tournament Walleye" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">SLOT VERIFIED</span>
+                <h4 class="text-xs font-bold leading-snug">Measured Tournament Walleye</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: walleye_4 -->
+          <div onclick="openCatchLightbox('walleye_4')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('walleye_4'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/walleye_04_cleaning_table.jpg" alt="Shoreline Fish Fry Catch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">CLEANING STATION</span>
+                <h4 class="text-xs font-bold leading-snug">Shoreline Fish Fry Catch</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- SPECIES GROUP 3: LARGEMOUTH & SMALLMOUTH BASS (5 PHOTOS) -->
+      <!-- ============================================== -->
+      <div class="species-group-block bg-white rounded-2xl heritage-border shadow-sm p-6 sm:p-8 transition-all" data-species-group="bass">
+        <div class="flex flex-col lg:flex-row lg:items-start justify-between pb-6 border-b border-camp-border gap-6 mb-6">
+          <div class="max-w-xl">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded bg-emerald-100 text-emerald-900 border border-emerald-200 text-[11px] font-bold font-cinzel">ACROBATIC REEF & PAD BRAWLERS</span>
+              <span class="text-xs font-semibold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">3rd Sat in June to Dec 15</span>
+              <span class="text-xs font-bold text-pine-900 bg-pine-50 px-2.5 py-0.5 rounded border border-pine-200">5 Authentic Catches</span>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-pine-900">Largemouth & Smallmouth Bass</h3>
+            <p class="text-xs sm:text-sm text-stone-600 font-mono mt-0.5">Micropterus salmoides & dolomieu • High Density 3-5 lbs</p>
+            <p class="text-stone-700 text-sm leading-relaxed mt-3">
+              Moira Lake boasts phenomenal dual-bass action. Aggressive largemouth thrive in the dense lilypad bays and dock structures directly outside Bailey’s Cottages, while hard-fighting bronze smallmouth dominate the offshore glacial boulder humps.
+            </p>
+          </div>
+
+          <div class="text-xs text-stone-700 space-y-2 bg-camp-cream p-4 rounded-xl border border-camp-border lg:w-80 flex-shrink-0">
+            <div class="font-bold text-pine-900 border-b border-camp-border pb-1 font-cinzel">FMZ 18 Regulations & Playbook</div>
+            <div class="flex justify-between"><span class="font-semibold">Sport Limit:</span><span>6 Fish combined (Conserv: 2)</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Season Dates:</span><span>3rd Sat in June to Dec 15</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Target Depths:</span><span>Largemouth: 2-8 ft • Smallmouth: 8-18 ft</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Prime Lures:</span><span>Ned Rigs, Drop Shots, Frogs, Senkos</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Prime Hotspots:</span><span>Bailey's Bay Pads, Green Island Shallows</span></div>
+          </div>
+        </div>
+
+        <!-- Bass Catch Gallery Grid (5 Photos) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <!-- Catch Card: bass_1 -->
+          <div onclick="openCatchLightbox('bass_1')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('bass_1'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/bass_01_largemouth_boat.jpg" alt="Heavy Cabbage Largemouth" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">TROPHY BASS</span>
+                <h4 class="text-xs font-bold leading-snug">Heavy Cabbage Largemouth</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: bass_2 -->
+          <div onclick="openCatchLightbox('bass_2')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('bass_2'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/bass_02_largemouth_heavy.jpg" alt="Tournament Girth Largemouth" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">FOOTBALL BASS</span>
+                <h4 class="text-xs font-bold leading-snug">Tournament Girth Largemouth</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: bass_3 -->
+          <div onclick="openCatchLightbox('bass_3')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('bass_3'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/bass_03_largemouth_weedline.jpg" alt="Lily Pad Pocket Bass" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">WEED POCKET</span>
+                <h4 class="text-xs font-bold leading-snug">Lily Pad Pocket Bass</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: bass_4 -->
+          <div onclick="openCatchLightbox('bass_4')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('bass_4'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/bass_04_smallmouth_family.jpg" alt="Bronze Smallmouth Reef Bass" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">FAMILY BRONZEBACK</span>
+                <h4 class="text-xs font-bold leading-snug">Bronze Smallmouth Reef Bass</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: bass_5 -->
+          <div onclick="openCatchLightbox('bass_5')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('bass_5'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/bass_05_largemouth_beach.jpg" alt="Lakeside Camp Shore Bass" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">BEACH LANDING</span>
+                <h4 class="text-xs font-bold leading-snug">Lakeside Camp Shore Bass</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- SPECIES GROUP 4: NORTHERN PIKE (5 PHOTOS) -->
+      <!-- ============================================== -->
+      <div class="species-group-block bg-white rounded-2xl heritage-border shadow-sm p-6 sm:p-8 transition-all" data-species-group="pike">
+        <div class="flex flex-col lg:flex-row lg:items-start justify-between pb-6 border-b border-camp-border gap-6 mb-6">
+          <div class="max-w-xl">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded bg-blue-100 text-blue-900 border border-blue-200 text-[11px] font-bold font-cinzel">YEAR-ROUND WEEDLINE HUNTER</span>
+              <span class="text-xs font-semibold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">Open All Year in FMZ 18</span>
+              <span class="text-xs font-bold text-pine-900 bg-pine-50 px-2.5 py-0.5 rounded border border-pine-200">5 Authentic Catches</span>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-pine-900">Northern Pike</h3>
+            <p class="text-xs sm:text-sm text-stone-600 font-mono mt-0.5">Esox lucius • Up to 40+ Inches in Moira Lake</p>
+            <p class="text-stone-700 text-sm leading-relaxed mt-3">
+              Fierce, aggressive predators that prowl the cabbage weedbeds and river mouth flats. Pike provide non-stop high-energy action on hardware throughout spring, summer, and ice-up.
+            </p>
+          </div>
+
+          <div class="text-xs text-stone-700 space-y-2 bg-camp-cream p-4 rounded-xl border border-camp-border lg:w-80 flex-shrink-0">
+            <div class="font-bold text-pine-900 border-b border-camp-border pb-1 font-cinzel">FMZ 18 Regulations & Playbook</div>
+            <div class="flex justify-between"><span class="font-semibold">Sport Limit:</span><span>6 Fish (Conservation: 2)</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Size Restriction:</span><span>Not more than 1 over 61 cm (24 in)</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Target Depths:</span><span>4 to 15 ft Cabbage Weedlines</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Prime Lures:</span><span>Daredevle Spoons, Mepps #5, Chatterbaits</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Prime Hotspots:</span><span>North Marsh Inflow, River Delta, Island Flats</span></div>
+          </div>
+        </div>
+
+        <!-- Pike Catch Gallery Grid (5 Photos) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <!-- Catch Card: pike_1 -->
+          <div onclick="openCatchLightbox('pike_1')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('pike_1'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/pike_01_giant_yamaha.jpg" alt="Giant Moira Lake Northern Pike" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">GIANT PIKE</span>
+                <h4 class="text-xs font-bold leading-snug">Giant Moira Lake Northern Pike</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: pike_2 -->
+          <div onclick="openCatchLightbox('pike_2')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('pike_2'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/pike_02_fall_heavyweight.jpg" alt="Fall Heavyweight Northern Pike" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">FALL HEAVYWEIGHT</span>
+                <h4 class="text-xs font-bold leading-snug">Fall Heavyweight Northern Pike</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: pike_3 -->
+          <div onclick="openCatchLightbox('pike_3')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('pike_3'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/pike_03_sunset_catch.jpg" alt="Golden Sunset Northern Pike" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">SUNSET TROLL</span>
+                <h4 class="text-xs font-bold leading-snug">Golden Sunset Northern Pike</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: pike_4 -->
+          <div onclick="openCatchLightbox('pike_4')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('pike_4'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/pike_04_boat_net_trophy.jpg" alt="Family Boat Northern Pike" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">FAMILY NET TROPHY</span>
+                <h4 class="text-xs font-bold leading-snug">Family Boat Northern Pike</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Catch Card: pike_5 -->
+          <div onclick="openCatchLightbox('pike_5')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('pike_5'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/pike_05_vertical_weedline.jpg" alt="Weedline Feeder Pike" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">WEEDLINE FEEDER</span>
+                <h4 class="text-xs font-bold leading-snug">Weedline Feeder Pike</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- SPECIES GROUP 5: BLACK CRAPPIE & PANFISH (1 PHOTO) -->
+      <!-- ============================================== -->
+      <div class="species-group-block bg-white rounded-2xl heritage-border shadow-sm p-6 sm:p-8 transition-all" data-species-group="panfish">
+        <div class="flex flex-col lg:flex-row lg:items-start justify-between pb-6 border-b border-camp-border gap-6 mb-6">
+          <div class="max-w-xl">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded bg-purple-100 text-purple-900 border border-purple-200 text-[11px] font-bold font-cinzel">FAMILY TRADITION & KIDS ACTION</span>
+              <span class="text-xs font-semibold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">Open All Year in FMZ 18</span>
+              <span class="text-xs font-bold text-pine-900 bg-pine-50 px-2.5 py-0.5 rounded border border-pine-200">1 Authentic Catch</span>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-pine-900">Black Crappie & Panfish</h3>
+            <p class="text-xs sm:text-sm text-stone-600 font-mono mt-0.5">Pomoxis nigromaculatus & Lepomis • Family Dock Fishing</p>
+            <p class="text-stone-700 text-sm leading-relaxed mt-3">
+              Spectacular non-stop action for kids, beginners, and spring crappie enthusiasts right off Bailey's private launch slips, wooden docks, and shoreline pilings. Delivers sweet panfish fillets and unforgettable childhood memories.
+            </p>
+          </div>
+
+          <div class="text-xs text-stone-700 space-y-2 bg-camp-cream p-4 rounded-xl border border-camp-border lg:w-80 flex-shrink-0">
+            <div class="font-bold text-pine-900 border-b border-camp-border pb-1 font-cinzel">FMZ 18 Regulations & Playbook</div>
+            <div class="flex justify-between"><span class="font-semibold">Sport Limit:</span><span>Crappie: 30 • Sunfish/Perch: 50</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Season Dates:</span><span>Open All Year in FMZ 18</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Target Depths:</span><span>2 to 10 ft Dock Pilings & Cribs</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Prime Lures:</span><span>1/16 oz Marabou Jigs, Micro Tubes, Live Worms</span></div>
+            <div class="flex justify-between"><span class="font-semibold">Prime Hotspots:</span><span>Bailey's Dock Slips, Shoreline Cribs</span></div>
+          </div>
+        </div>
+
+        <!-- Panfish Catch Gallery Grid (1 Photo) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Catch Card: panfish_1 -->
+          <div onclick="openCatchLightbox('panfish_1')" 
+               onkeydown="if(event.key==='Enter'||event.key===' '){openCatchLightbox('panfish_1'); event.preventDefault();}"
+               role="button" tabindex="0"
+               class="group relative rounded-xl overflow-hidden bg-stone-900 border border-camp-border shadow-sm hover:shadow-md cursor-pointer transition-all hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <div class="relative h-56 overflow-hidden bg-stone-950">
+              <img src="assets/catches/panfish_01_black_crappie.jpg" alt="Speckled Black Crappie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-2.5 left-2.5 bg-pine-950/90 text-amber-300 text-[10px] font-bold font-cinzel px-2 py-0.5 rounded border border-amber-500/30">
+                REAL BAILEY'S CATCH
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                <span class="text-[10px] font-mono text-amber-300 font-bold block">SPECKLED CRAPPIE</span>
+                <h4 class="text-xs font-bold leading-snug">Speckled Black Crappie</h4>
+                <p class="text-[10px] text-stone-300 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-amber-400"></i> Click to enlarge
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SEASONAL FISHING CALENDAR -->
+  <section id="calendar" class="py-16 bg-camp-parchment border-y border-camp-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="badge-stamp text-xs font-bold text-amber-700 block mb-1 font-cinzel">Season By Season Playbook</span>
+          <h2 class="font-serif text-3xl font-bold text-pine-900">Moira Lake Seasonal Calendar</h2>
+        </div>
+        
+        <!-- Season Filter Buttons -->
+        <div class="inline-flex p-1 bg-white rounded-lg border border-camp-border shadow-sm">
+          <button onclick="setSeason('spring')" id="btn-spring" class="px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded transition-all bg-pine-900 text-white">
+            SPRING (MAY - JUN)
+          </button>
+          <button onclick="setSeason('summer')" id="btn-summer" class="px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded transition-all text-pine-900 hover:bg-stone-100">
+            SUMMER (JUL - AUG)
+          </button>
+          <button onclick="setSeason('fall')" id="btn-fall" class="px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded transition-all text-pine-900 hover:bg-stone-100">
+            FALL (SEP - NOV)
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Content Card -->
+      <div id="season-display" class="bg-white rounded-xl p-8 heritage-border shadow-sm">
+        <!-- Will be dynamically populated by JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MOIRA LAKE TOPOGRAPHY & BATHYMETRIC MAP -->
+  <section id="lake-map" class="py-16 lg:py-24 bg-camp-parchment border-b border-camp-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="badge-stamp text-xs font-bold text-amber-700 block mb-2 font-cinzel">Navigational Soundings • Depth Contours • Structure</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-pine-900 mb-4">Interactive Moira Lake Topography & Angler Chart</h2>
+        <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+          Study depth contours (up to 30 ft maximum depth), underwater rock reefs, cabbage weedlines, and proven hotspots across Moira Lake's 2,110 acres. Plan your boat navigation routes departing directly from Bailey's private docks and launch ramp.
+        </p>
+      </div>
+
+      <!-- Lake Vital Topo Summary Strip -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8 text-center">
+        <div class="p-3 bg-white rounded-lg border border-camp-border shadow-sm">
+          <span class="block text-[11px] font-semibold text-stone-600 uppercase font-cinzel">Surface Area</span>
+          <span class="font-serif font-bold text-base text-pine-900">2,110 Acres</span>
+          <span class="block text-[10px] text-stone-600">853 Hectares</span>
+        </div>
+        <div class="p-3 bg-white rounded-lg border border-camp-border shadow-sm">
+          <span class="block text-[11px] font-semibold text-stone-600 uppercase font-cinzel">Max Depth</span>
+          <span class="font-serif font-bold text-base text-pine-900">30 Feet</span>
+          <span class="block text-[10px] text-stone-600">9.1 Meters</span>
+        </div>
+        <div class="p-3 bg-white rounded-lg border border-camp-border shadow-sm">
+          <span class="block text-[11px] font-semibold text-stone-600 uppercase font-cinzel">Mean Depth</span>
+          <span class="font-serif font-bold text-base text-pine-900">11.8 Feet</span>
+          <span class="block text-[10px] text-stone-600">3.6 Meters</span>
+        </div>
+        <div class="p-3 bg-white rounded-lg border border-camp-border shadow-sm">
+          <span class="block text-[11px] font-semibold text-stone-600 uppercase font-cinzel">Shoreline</span>
+          <span class="font-serif font-bold text-base text-pine-900">34 Kilometers</span>
+          <span class="block text-[10px] text-stone-600">Including Islands</span>
+        </div>
+        <div class="p-3 bg-white rounded-lg border border-camp-border shadow-sm">
+          <span class="block text-[11px] font-semibold text-stone-600 uppercase font-cinzel">Landmark Islands</span>
+          <span class="font-serif font-bold text-base text-pine-900">3 Major Islands</span>
+          <span class="block text-[10px] text-stone-600">Papoose, Green, Stony</span>
+        </div>
+        <div class="p-3 bg-white rounded-lg border border-camp-border shadow-sm">
+          <span class="block text-[11px] font-semibold text-stone-600 uppercase font-cinzel">Fishery Zone</span>
+          <span class="font-serif font-bold text-base text-pine-900">FMZ 18</span>
+          <span class="block text-[10px] text-stone-600">Warmwater Fishery</span>
+        </div>
+      </div>
+
+      <!-- Interactive Map Toolbar -->
+      <div class="bg-white p-4 rounded-xl border border-camp-border shadow-sm mb-6 flex flex-wrap items-center justify-between gap-4">
+        
+        <!-- Base Layer Mode Toggles -->
+        <div class="flex items-center gap-1.5 bg-stone-100 p-1 rounded-lg border border-stone-200">
+          <span class="text-[11px] font-bold text-stone-600 uppercase px-2 font-cinzel hidden sm:inline">Layer:</span>
+          <button onclick="setMapBaseLayer('topo')" id="btn-layer-topo" class="px-3 py-1.5 text-xs font-semibold rounded transition-all bg-pine-900 text-white shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            Topographic
+          </button>
+          <button onclick="setMapBaseLayer('satellite')" id="btn-layer-sat" class="px-3 py-1.5 text-xs font-semibold rounded transition-all text-stone-700 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            Satellite View
+          </button>
+          <button onclick="setMapBaseLayer('osm')" id="btn-layer-osm" class="px-3 py-1.5 text-xs font-semibold rounded transition-all text-stone-700 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            Hydrographic Map
+          </button>
+        </div>
+
+        <!-- Target Species Hotspot Filters -->
+        <div class="flex flex-wrap items-center gap-1.5">
+          <span class="text-[11px] font-bold text-stone-600 uppercase px-2 font-cinzel hidden md:inline">Hotspots:</span>
+          <button onclick="filterMapHotspots('all')" id="btn-spot-all" class="px-2.5 py-1.5 text-xs font-bold rounded bg-amber-600 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            All (8)
+          </button>
+          <button onclick="filterMapHotspots('muskie')" id="btn-spot-muskie" class="px-2.5 py-1.5 text-xs font-semibold rounded bg-stone-100 text-stone-700 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            Muskie (3)
+          </button>
+          <button onclick="filterMapHotspots('walleye')" id="btn-spot-walleye" class="px-2.5 py-1.5 text-xs font-semibold rounded bg-stone-100 text-stone-700 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            Walleye (3)
+          </button>
+          <button onclick="filterMapHotspots('bass')" id="btn-spot-bass" class="px-2.5 py-1.5 text-xs font-semibold rounded bg-stone-100 text-stone-700 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            Bass (4)
+          </button>
+        </div>
+
+        <!-- Action Shortcuts -->
+        <div class="flex items-center gap-2">
+          <button onclick="toggleContours()" id="btn-toggle-contours" class="px-3 py-1.5 text-xs font-semibold rounded border border-stone-300 bg-white hover:bg-stone-50 text-stone-700 flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-pine-900"></i>
+            <span id="label-toggle-contours">Contours: ON</span>
+          </button>
+          <button onclick="centerOnBaileys()" class="px-3 py-1.5 text-xs font-bold font-cinzel rounded bg-pine-900 hover:bg-pine-800 text-amber-300 flex items-center gap-1.5 shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+            <i data-lucide="anchor" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>Bailey's Docks</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Main Map Grid (8 cols map, 4 cols details) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Interactive Leaflet Map Column (8 cols) -->
+        <div class="lg:col-span-8 bg-white p-3 rounded-xl heritage-border shadow-md relative">
+          
+          <!-- Map Canvas Container -->
+          <div id="moira-lake-map" class="w-full h-[450px] sm:h-[550px] lg:h-[620px] rounded-lg overflow-hidden relative z-0"></div>
+
+          <!-- Live Depth Sounder & Cursor HUD -->
+          <div class="absolute top-6 right-6 z-10 bg-pine-950/90 backdrop-blur text-white px-3 py-2 rounded-lg border border-pine-800/80 shadow text-xs pointer-events-none hidden sm:block">
+            <div class="text-[10px] text-amber-300 font-cinzel font-bold tracking-wider">LIVE SOUNDER HUD</div>
+            <div id="hud-sounder" class="font-mono text-xs text-stone-200 mt-0.5">Move cursor over lake for depth soundings</div>
+          </div>
+
+          <!-- Depth Color Ramp Legend Overlay -->
+          <div class="mt-3 p-3 bg-stone-50 rounded-lg border border-camp-border flex flex-wrap items-center justify-between gap-3 text-xs">
+            <span class="font-cinzel font-bold text-pine-900 text-[11px]">BATHYMETRIC DEPTH RAMP:</span>
+            <div class="flex items-center gap-4 flex-wrap text-[11px] text-stone-700">
+              <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-cyan-200 border border-cyan-400"></span> 0 - 5 ft (Shallows / Pads)</span>
+              <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-cyan-400 border border-cyan-600"></span> 5 - 10 ft (Weedline Shelf)</span>
+              <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-sky-600 border border-sky-800"></span> 10 - 15 ft (Mid-Lake Drops)</span>
+              <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-blue-700 border border-blue-900"></span> 15 - 20 ft (Rock Reefs)</span>
+              <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-blue-950 border border-blue-950"></span> 20 - 30 ft (Deep Hole Basins)</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Hotspot & Structure Field Guide Drawer (4 cols) -->
+        <div class="lg:col-span-4 space-y-4">
+          
+          <!-- Active Hotspot Field Guide Card -->
+          <div id="hotspot-detail-box" class="bg-white p-6 rounded-xl heritage-border shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <span id="detail-category-badge" class="px-2.5 py-1 text-[11px] font-bold rounded bg-amber-100 text-amber-900 border border-amber-300">
+                CAMP HEADQUARTERS
+              </span>
+              <span id="detail-depth-badge" class="text-xs font-mono font-bold text-pine-900 bg-stone-100 px-2 py-0.5 rounded border border-stone-200">
+                4 - 10 ft Depth
+              </span>
+            </div>
+
+            <h3 id="detail-name" class="font-serif text-2xl font-bold text-pine-900 mb-1">
+              Bailey's Cottages & Boat Launch
+            </h3>
+            <p id="detail-structure" class="text-xs text-amber-800 font-semibold mb-3">
+              141 Lahey Road • Private Launch Ramp, Docks & Shoreline Shallows
+            </p>
+
+            <p id="detail-overview" class="text-xs text-stone-600 leading-relaxed mb-4">
+              Your home base on Moira Lake. Features direct private boat ramp, stable slip moorings, safe fueling, and convenient fish cleaning station. Immediate dock access for panfish, crappie, and shoreline bass.
+            </p>
+
+            <div class="space-y-2.5 text-xs border-t border-camp-border pt-4 mb-4">
+              <div class="flex justify-between text-stone-700">
+                <span class="font-semibold text-stone-800">Target Species:</span>
+                <span id="detail-target" class="text-right text-pine-900 font-medium">Panfish, Bass, Perch, Crappie</span>
+              </div>
+              <div class="flex justify-between text-stone-700">
+                <span class="font-semibold text-stone-800">Bottom Composition:</span>
+                <span id="detail-bottom" class="text-right text-stone-600">Sand, gravel ramp & dock pilings</span>
+              </div>
+              <div class="flex justify-between text-stone-700">
+                <span class="font-semibold text-stone-800">Run from Bailey's:</span>
+                <span id="detail-distance" class="text-right font-bold text-emerald-700">0.0 km (Home Base)</span>
+              </div>
+              <div class="flex justify-between text-stone-700">
+                <span class="font-semibold text-stone-800">GPS Coordinates:</span>
+                <span id="detail-gps" class="text-right font-mono text-stone-600">44.4925° N, 77.4615° W</span>
+              </div>
+              <div class="flex justify-between text-stone-700">
+                <span class="font-semibold text-stone-800">Prime Window:</span>
+                <span id="detail-window" class="text-right text-stone-600">All season • Dawn & golden hour dusk</span>
+              </div>
+            </div>
+
+            <div class="p-3 bg-amber-50 rounded border border-amber-200 text-xs mb-4">
+              <strong class="text-amber-950 block mb-1">Recommended Lures & Approach:</strong>
+              <span id="detail-lures" class="text-amber-900 leading-relaxed">
+                Light slip bobbers with live worms or minnows right off the docks; weedless Ned rigs cast along the outer lilypads.
+              </span>
+            </div>
+
+            <button onclick="zoomToCurrentHotspot()" class="w-full py-2.5 bg-pine-900 hover:bg-pine-800 text-white font-cinzel text-xs font-bold rounded shadow transition-colors flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+              <i data-lucide="crosshair" class="w-4 h-4 text-amber-400"></i>
+              <span>CENTER THIS SPOT ON MAP</span>
+            </button>
+          </div>
+
+          <!-- Quick Hotspots Directory List -->
+          <div class="bg-white p-4 rounded-xl heritage-border shadow-sm">
+            <h4 class="font-cinzel text-xs font-bold text-pine-900 uppercase tracking-wider mb-3">
+              Explore Moira Lake Hotspots:
+            </h4>
+            <div id="hotspot-directory-list" class="space-y-1.5 max-h-[220px] overflow-y-auto pr-1">
+              <!-- Populated dynamically via JS -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOAT RENTALS, DOCK SLIPS & CAMP GEAR CALCULATOR -->
+  <section id="rentals" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="badge-stamp text-xs font-bold text-amber-700 block mb-2 font-cinzel">Watercraft & Camp Provisions</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-pine-900 mb-4">Boat Rentals & Docking Slips</h2>
+      <p class="text-stone-600 text-sm sm:text-base">
+        Bring your own vessel and use our private launch ramp and slips, or rent our on-site watercraft. Everything you need is right at your doorstep.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Gear Selection List (8 cols) -->
+      <div class="lg:col-span-7 space-y-4">
+        
+        <!-- Rental Item 1 -->
+        <div class="p-5 rounded-xl bg-white heritage-border flex items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-pine-900/10 text-pine-900 flex items-center justify-center">
+              <i data-lucide="ship" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="font-serif font-bold text-lg text-pine-900">14' Aluminum Fishing Boat + 9.9HP Outboard</h4>
+              <p class="text-xs text-stone-600">Includes safety kit, oars, life jackets & tank of fuel</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="block font-bold text-pine-900 text-lg">$85<span class="text-xs font-normal text-stone-600">/day</span></span>
+            <button onclick="toggleGear('boat', 85, '14ft Fishing Boat w/ Outboard')" id="btn-gear-boat" class="mt-1 text-xs px-3 py-1.5 rounded bg-pine-900 text-white font-medium hover:bg-pine-800">
+              Add to Stay
+            </button>
+          </div>
+        </div>
+
+        <!-- Rental Item 2 -->
+        <div class="p-5 rounded-xl bg-white heritage-border flex items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-pine-900/10 text-pine-900 flex items-center justify-center">
+              <i data-lucide="waves" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="font-serif font-bold text-lg text-pine-900">Recreational Canoe or Kayak Rental</h4>
+              <p class="text-xs text-stone-600">Includes paddles and PFDs. Great for shoreline exploring</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="block font-bold text-pine-900 text-lg">$35<span class="text-xs font-normal text-stone-600">/day</span></span>
+            <button onclick="toggleGear('canoe', 35, 'Canoe / Kayak Rental')" id="btn-gear-canoe" class="mt-1 text-xs px-3 py-1.5 rounded bg-pine-900 text-white font-medium hover:bg-pine-800">
+              Add to Stay
+            </button>
+          </div>
+        </div>
+
+        <!-- Rental Item 3 -->
+        <div class="p-5 rounded-xl bg-white heritage-border flex items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-pine-900/10 text-pine-900 flex items-center justify-center">
+              <i data-lucide="anchor" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="font-serif font-bold text-lg text-pine-900">Private Boat Launch & Dock Slip</h4>
+              <p class="text-xs text-stone-600">Secure dock mooring right in front of cottages</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="block font-bold text-pine-900 text-lg">$20<span class="text-xs font-normal text-stone-600">/day</span></span>
+            <button onclick="toggleGear('slip', 20, 'Dock Slip & Launch Ramp')" id="btn-gear-slip" class="mt-1 text-xs px-3 py-1.5 rounded bg-pine-900 text-white font-medium hover:bg-pine-800">
+              Add to Stay
+            </button>
+          </div>
+        </div>
+
+        <!-- Rental Item 4 -->
+        <div class="p-5 rounded-xl bg-white heritage-border flex items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-pine-900/10 text-pine-900 flex items-center justify-center">
+              <i data-lucide="flame" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="font-serif font-bold text-lg text-pine-900">Seasoned Hardwood Campfire Bundle</h4>
+              <p class="text-xs text-stone-600">Dry local hardwood ready for evening cabin fire pits</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="block font-bold text-pine-900 text-lg">$10<span class="text-xs font-normal text-stone-600">/bundle</span></span>
+            <button onclick="toggleGear('wood', 10, 'Hardwood Firewood Bundle')" id="btn-gear-wood" class="mt-1 text-xs px-3 py-1.5 rounded bg-pine-900 text-white font-medium hover:bg-pine-800">
+              Add to Stay
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Live Trip Calculator Card (5 cols) -->
+      <div class="lg:col-span-5 bg-pine-950 text-white rounded-xl p-6 sm:p-8 heritage-border shadow-lg">
+        <div class="flex items-center justify-between border-b border-pine-800 pb-4 mb-6">
+          <div>
+            <h3 class="font-serif text-xl font-bold text-white">Trip Estimate</h3>
+            <span class="text-xs text-amber-400 font-cinzel">Transparent 0%-Fee Breakdown</span>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-pine-900 border border-amber-600/40 flex items-center justify-center text-amber-400">
+            <i data-lucide="calculator" class="w-5 h-5"></i>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-sm mb-6">
+          <div class="flex justify-between items-center text-zinc-300">
+            <span>Cabin Rental (2 Nights Min):</span>
+            <span class="font-bold text-white font-mono">$300.00 CAD</span>
+          </div>
+          <div class="text-[11px] text-zinc-400">
+            *Default rate $150/nt Sun-Thu, $175/nt Fri-Sat
+          </div>
+
+          <div id="calculator-gear-list" class="space-y-2 border-t border-pine-800/80 pt-3 text-xs">
+            <div class="text-zinc-400 italic">No extra equipment selected yet. Click "Add to Stay" above.</div>
+          </div>
+
+          <div class="border-t border-pine-800 pt-4 flex justify-between items-center text-base font-bold">
+            <span>Estimated Total:</span>
+            <span id="calc-total" class="text-2xl text-amber-400 font-mono">$300.00 CAD</span>
+          </div>
+
+          <div class="bg-pine-900/60 p-3 rounded text-[11px] text-zinc-300 space-y-1">
+            <div class="flex justify-between">
+              <span>Deposit Due Now (50%):</span>
+              <span id="calc-deposit" class="font-bold text-white font-mono">$150.00 CAD</span>
+            </div>
+            <div class="flex justify-between text-zinc-400">
+              <span>Remaining Balance:</span>
+              <span>Due 7 days prior to arrival</span>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="openBookingModal('Angler Stay + Extras')" class="w-full py-3.5 bg-amber-600 hover:bg-amber-500 text-white font-cinzel font-bold text-xs tracking-wider rounded shadow transition-all">
+          BOOK THIS ANGLER PACKAGE
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CURATED MADOC LOCAL FIELD GUIDE -->
+  <section id="local-guide" class="py-16 bg-camp-parchment border-t border-camp-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="badge-stamp text-xs font-bold text-amber-700 block mb-2 font-cinzel">Beyond The Lake</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-pine-900 mb-4">Curated Madoc Field Guide</h2>
+        <p class="text-stone-600 text-sm sm:text-base">
+          Just 5 to 10 minutes from your cabin deck lies downtown Madoc and Centre Hastings, home to historic bakeries, pioneer conservation areas, and adventure trails.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Local Gem 1: Hidden Goldmine Bakery -->
+        <div class="bg-white rounded-xl overflow-hidden heritage-border hover:-translate-y-1 transition-transform">
+          <div class="h-44 bg-amber-900/10 flex items-center justify-center p-6 border-b border-camp-border text-center">
+            <div>
+              <span class="inline-block p-3 rounded-full bg-amber-100 text-amber-800 mb-2">
+                <i data-lucide="coffee" class="w-6 h-6"></i>
+              </span>
+              <h3 class="font-serif font-bold text-xl text-pine-900">Hidden Goldmine Bakery</h3>
+              <span class="text-xs text-amber-800 font-semibold">Downtown Madoc • 8 Mins Away</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-xs sm:text-sm text-stone-600 mb-4 leading-relaxed">
+              A must-stop local staple! Legendary for freshly baked butter tarts, artisanal sourdough, warm donuts, sandwiches, and premium espresso coffee.
+            </p>
+            <div class="text-xs space-y-1.5 text-stone-700 border-t border-camp-border pt-4">
+              <div class="flex justify-between">
+                <span class="font-semibold">Local Tip:</span>
+                <span>Order butter tarts early before noon</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-semibold">Location:</span>
+                <span>13-17 Durham St S, Madoc</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Local Gem 2: O'Hara Mill Homestead -->
+        <div class="bg-white rounded-xl overflow-hidden heritage-border hover:-translate-y-1 transition-transform">
+          <div class="h-44 bg-pine-900/10 flex items-center justify-center p-6 border-b border-camp-border text-center">
+            <div>
+              <span class="inline-block p-3 rounded-full bg-pine-100 text-pine-900 mb-2">
+                <i data-lucide="landmark" class="w-6 h-6"></i>
+              </span>
+              <h3 class="font-serif font-bold text-xl text-pine-900">O'Hara Mill Homestead</h3>
+              <span class="text-xs text-pine-800 font-semibold">Conservation Area • 12 Mins Away</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-xs sm:text-sm text-stone-600 mb-4 leading-relaxed">
+              Step back into the 1850s. Features the only operational sawmill of its kind in Ontario, picturesque covered footbridge, historic schoolhouse, and walking trails along the mill pond.
+            </p>
+            <div class="text-xs space-y-1.5 text-stone-700 border-t border-camp-border pt-4">
+              <div class="flex justify-between">
+                <span class="font-semibold">Best For:</span>
+                <span>Scenic trail walks & photography</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-semibold">Admission:</span>
+                <span>By donation • Open grounds</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Local Gem 3: Eastern Ontario Heritage Trail -->
+        <div class="bg-white rounded-xl overflow-hidden heritage-border hover:-translate-y-1 transition-transform">
+          <div class="h-44 bg-stone-900/10 flex items-center justify-center p-6 border-b border-camp-border text-center">
+            <div>
+              <span class="inline-block p-3 rounded-full bg-stone-200 text-stone-800 mb-2">
+                <i data-lucide="mountain-snow" class="w-6 h-6"></i>
+              </span>
+              <h3 class="font-serif font-bold text-xl text-pine-900">Heritage Trail Corridor</h3>
+              <span class="text-xs text-stone-800 font-semibold">Hastings County • Direct Access</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-xs sm:text-sm text-stone-600 mb-4 leading-relaxed">
+              A 156-kilometer multi-use recreational trail on an abandoned railway bed. Perfect for hiking, mountain biking, gravel riding, or bringing your ATV in the backcountry.
+            </p>
+            <div class="text-xs space-y-1.5 text-stone-700 border-t border-camp-border pt-4">
+              <div class="flex justify-between">
+                <span class="font-semibold">Activities:</span>
+                <span>ATV, mountain biking, nature strolls</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-semibold">Terrain:</span>
+                <span>Hard-packed gravel rail trail</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Local Gem 4: Marmora Mine -->
+        <div class="bg-white rounded-xl overflow-hidden heritage-border hover:-translate-y-1 transition-transform">
+          <div class="h-44 bg-blue-900/10 flex items-center justify-center p-6 border-b border-camp-border text-center">
+            <div>
+              <span class="inline-block p-3 rounded-full bg-blue-100 text-blue-900 mb-2">
+                <i data-lucide="eye" class="w-6 h-6"></i>
+              </span>
+              <h3 class="font-serif font-bold text-xl text-pine-900">Marmora Open-Pit Mine</h3>
+              <span class="text-xs text-blue-800 font-semibold">Geological Wonder • 15 Mins Away</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-xs sm:text-sm text-stone-600 mb-4 leading-relaxed">
+              A massive historic open-pit iron ore mine, now filled with striking crystal-clear turquoise groundwater. Stunning panoramic viewing platform off Highway 7.
+            </p>
+            <div class="text-xs space-y-1.5 text-stone-700 border-t border-camp-border pt-4">
+              <div class="flex justify-between">
+                <span class="font-semibold">Pit Depth:</span>
+                <span>Over 700 feet deep</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-semibold">Access:</span>
+                <span>Free viewing platform & parking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Local Gem 5: Madoc Skate Park & Splash Pad -->
+        <div class="bg-white rounded-xl overflow-hidden heritage-border hover:-translate-y-1 transition-transform">
+          <div class="h-44 bg-emerald-900/10 flex items-center justify-center p-6 border-b border-camp-border text-center">
+            <div>
+              <span class="inline-block p-3 rounded-full bg-emerald-100 text-emerald-900 mb-2">
+                <i data-lucide="smile" class="w-6 h-6"></i>
+              </span>
+              <h3 class="font-serif font-bold text-xl text-pine-900">Centre Hastings Park</h3>
+              <span class="text-xs text-emerald-800 font-semibold">Skate Park & Splash Pad • 8 Mins Away</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-xs sm:text-sm text-stone-600 mb-4 leading-relaxed">
+              Ideal for families with young children. Features a world-class concrete skatepark, shaded picnic pavilions, modern splash pad, and playground facilities right in town.
+            </p>
+            <div class="text-xs space-y-1.5 text-stone-700 border-t border-camp-border pt-4">
+              <div class="flex justify-between">
+                <span class="font-semibold">Family Friendly:</span>
+                <span>Free community park & restrooms</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-semibold">Location:</span>
+                <span>Durham St S, Madoc</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Local Gem 6: Bait, Groceries & LCBO -->
+        <div class="bg-white rounded-xl overflow-hidden heritage-border hover:-translate-y-1 transition-transform">
+          <div class="h-44 bg-purple-900/10 flex items-center justify-center p-6 border-b border-camp-border text-center">
+            <div>
+              <span class="inline-block p-3 rounded-full bg-purple-100 text-purple-900 mb-2">
+                <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+              </span>
+              <h3 class="font-serif font-bold text-xl text-pine-900">Camp Supplies & LCBO</h3>
+              <span class="text-xs text-purple-800 font-semibold">Provisions • 7 Mins Away</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-xs sm:text-sm text-stone-600 mb-4 leading-relaxed">
+              Stock up your cabin kitchenette easily. Madoc Foodland (full grocery store), local gas stations selling live worms and tackle, and LCBO/The Beer Store are just up the road.
+            </p>
+            <div class="text-xs space-y-1.5 text-stone-700 border-t border-camp-border pt-4">
+              <div class="flex justify-between">
+                <span class="font-semibold">Foodland:</span>
+                <span>Open 7 days a week</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-semibold">Live Bait:</span>
+                <span>Worms, minnows & basic tackle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CAMP LIFE & HISTORIC GUEST CATCHES GALLERY -->
+  <section id="gallery" class="py-16 lg:py-24 bg-stone-100 border-t border-camp-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <span class="badge-stamp text-xs font-bold text-amber-700 block mb-2 font-cinzel">Heritage Archive • Moira Lake Catches</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-pine-900 mb-3">Camp Life & Guest Trophies</h2>
+          <p class="text-stone-600 text-sm max-w-2xl leading-relaxed">
+            Real guest snapshots from our 80+ years on Moira Lake. From 50-inch muskie releases and morning bass stringers to crackling campfire dutch ovens, dock sunsets, and lawn games.
+          </p>
+        </div>
+        <div class="flex-shrink-0">
+          <a href="facebook_gallery.html" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-pine-900 hover:bg-pine-800 text-white font-cinzel text-xs font-bold tracking-wider shadow hover:shadow-md transition-all">
+            <i data-lucide="images" class="w-4 h-4 text-amber-400"></i>
+            <span>VIEW ALL 71 UNIQUE GUEST PHOTOS &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Curated Grid of Authentic Facebook/Camp Photos -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <!-- Photo 1: Trophy Northern Pike on Boat -->
+        <div class="group relative rounded-xl overflow-hidden bg-white heritage-border shadow-sm hover:shadow-md transition-all">
+          <div class="relative h-60 overflow-hidden bg-pine-950">
+            <img src="assets/catches/trophy_pike_boat.jpg" alt="Moira Lake Trophy Northern Pike Catch on Boat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="text-[10px] font-bold font-cinzel text-amber-300 tracking-wider block">APEX PREDATOR</span>
+              <p class="text-xs font-bold">Trophy Northern Pike</p>
+              <p class="text-[11px] text-zinc-300">Moira Lake Weed Edge Catch</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 2: Vertical Outboard Muskie -->
+        <div class="group relative rounded-xl overflow-hidden bg-white heritage-border shadow-sm hover:shadow-md transition-all">
+          <div class="relative h-60 overflow-hidden bg-pine-950">
+            <img src="assets/catches/muskie_vertical_trophy.jpg" alt="Fall Muskie Catch at Boat Slip" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="text-[10px] font-bold font-cinzel text-amber-300 tracking-wider block">ANGLER CATCH</span>
+              <p class="text-xs font-bold">Heavyweight Fall Muskie</p>
+              <p class="text-[11px] text-zinc-300">Moored Boat Slips</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 3: Trophy Smallmouth Bass -->
+        <div class="group relative rounded-xl overflow-hidden bg-white heritage-border shadow-sm hover:shadow-md transition-all">
+          <div class="relative h-60 overflow-hidden bg-pine-950">
+            <img src="assets/catches/bass_smallmouth_trophy.jpg" alt="Trophy Smallmouth Bass Catch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="text-[10px] font-bold font-cinzel text-amber-300 tracking-wider block">ROCK REEF ACTION</span>
+              <p class="text-xs font-bold">Moira Lake Smallmouth Bass</p>
+              <p class="text-[11px] text-zinc-300">Empire Guest Catch</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 4: Family Boat Fishing -->
+        <div class="group relative rounded-xl overflow-hidden bg-white heritage-border shadow-sm hover:shadow-md transition-all">
+          <div class="relative h-60 overflow-hidden bg-pine-950">
+            <img src="assets/catches/family_boat_catch.jpg" alt="Family Fishing Memory on Moira Lake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="text-[10px] font-bold font-cinzel text-amber-300 tracking-wider block">FAMILY TRADITION</span>
+              <p class="text-xs font-bold">Generations on the Water</p>
+              <p class="text-[11px] text-zinc-300">Moira Lake Family Fishing</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 5: Dock Boardwalk -->
+        <div class="group relative rounded-xl overflow-hidden bg-white heritage-border shadow-sm hover:shadow-md transition-all">
+          <div class="relative h-60 overflow-hidden bg-pine-950">
+            <img src="assets/catches/docks_sunset_boardwalk.jpg" alt="Sunset Dock Boardwalk & Slips" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="text-[10px] font-bold font-cinzel text-amber-300 tracking-wider block">WATERFRONT DOCKS</span>
+              <p class="text-xs font-bold">Private Launch Boardwalk</p>
+              <p class="text-[11px] text-zinc-300">Moira Lake Shoreline</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 6: Family Lawn Gathering -->
+        <div class="group relative rounded-xl overflow-hidden bg-white heritage-border shadow-sm hover:shadow-md transition-all">
+          <div class="relative h-60 overflow-hidden bg-pine-950">
+            <img src="assets/catches/camp_family_lawn.jpg" alt="Camp Tradition & Lawn Gathering" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="text-[10px] font-bold font-cinzel text-amber-300 tracking-wider block">CAMP TRADITION</span>
+              <p class="text-xs font-bold">Family Reunions & Lawn Life</p>
+              <p class="text-[11px] text-zinc-300">Cabin #4 Green Lawns</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 7: Shaded Orchard Grounds -->
+        <div class="group relative rounded-xl overflow-hidden bg-white heritage-border shadow-sm hover:shadow-md transition-all">
+          <div class="relative h-60 overflow-hidden bg-pine-950">
+            <img src="assets/catches/camp_grounds_orchard.jpg" alt="Resort Grounds & Heritage Apple Trees" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="text-[10px] font-bold font-cinzel text-amber-300 tracking-wider block">CAMP GROUNDS</span>
+              <p class="text-xs font-bold">Heritage Apple Trees & Office</p>
+              <p class="text-[11px] text-zinc-300">Shaded Lakeside Grounds</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 8: Historic Road Sign -->
+        <div class="group relative rounded-xl overflow-hidden bg-white heritage-border shadow-sm hover:shadow-md transition-all">
+          <div class="relative h-60 overflow-hidden bg-pine-950">
+            <img src="assets/catches/historic_road_sign.jpg" alt="Bailey's Cottages Entrance Sign" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="text-[10px] font-bold font-cinzel text-amber-300 tracking-wider block">ESTABLISHED 1943</span>
+              <p class="text-xs font-bold">Historic Resort Entrance</p>
+              <p class="text-[11px] text-zinc-300">141 Lahey Rd, Madoc</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Historical Album Callout Banner -->
+      <div class="mt-8 p-6 rounded-xl bg-pine-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 heritage-border">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-amber-600/30 border border-amber-400/50 flex items-center justify-center flex-shrink-0 text-amber-300">
+            <i data-lucide="archive" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="font-serif font-bold text-lg text-white">Explore the Complete 71-Photo Historical Guest Archive</h4>
+            <p class="text-xs text-zinc-300">
+              Photos preserved from 4 generations of anglers, family reunions, ice-outs, and summer traditions at Bailey's Cottages. 100% verified unique photos with zero duplicates.
+            </p>
+          </div>
+        </div>
+        <a href="facebook_gallery.html" target="_blank" class="px-6 py-3 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-cinzel text-xs font-bold tracking-wider whitespace-nowrap shadow transition-colors flex items-center gap-2">
+          <span>OPEN PHOTO LIGHTBOX</span>
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CABINS 1 THROUGH 6 SUMMARY -->
+  <section id="cabins" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="badge-stamp text-xs font-bold text-amber-700 block mb-2 font-cinzel">Choose Your Waterfront Basecamp</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-pine-900 mb-4">The 6 Housekeeping Cabins</h2>
+      <p class="text-stone-600 text-sm sm:text-base">
+        All 6 self-catering cottages accommodate up to 4 guests, feature electricity, heating furnace, kitchenettes with fridge/microwave/stove, private fire pits, and access to our central hot shower comfort station. Click thumbnails to inspect interiors and lake views.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Cabin 1 -->
+      <div class="bg-white rounded-xl overflow-hidden heritage-border flex flex-col justify-between">
+        <div>
+          <div class="relative h-56 bg-stone-900 overflow-hidden">
+            <img id="cabin-1-main-img" src="assets/cabins/cabin_1_exterior.jpg" alt="Cabin 1 Exterior" class="w-full h-full object-cover transition-all duration-300">
+            <div class="absolute top-3 left-3 bg-pine-900 text-white font-cinzel text-xs font-bold px-2.5 py-1 rounded shadow">
+              CABIN #1
+            </div>
+            <div class="absolute bottom-3 right-3 bg-white/95 text-pine-900 font-bold text-xs px-2 py-1 rounded shadow">
+              $150 Wkdy / $175 Wknd
+            </div>
+          </div>
+          <!-- Interactive Photo Switcher Strip -->
+          <div class="flex gap-2 p-3 bg-stone-50 border-b border-camp-border overflow-x-auto">
+            <button onclick="switchCabinPhoto('cabin-1-main-img', 'assets/cabins/cabin_1_exterior.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 ring-2 ring-amber-500 focus:outline-none">
+              <img src="assets/cabins/cabin_1_exterior.jpg" class="w-full h-full object-cover" alt="Exterior">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-1-main-img', 'assets/cabins/cabin_1_inside.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_1_inside.jpg" class="w-full h-full object-cover" alt="Kitchen/Living">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-1-main-img', 'assets/cabins/cabin_1_view.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_1_view.jpg" class="w-full h-full object-cover" alt="Waterfront View">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-1-main-img', 'assets/cabins/cabin_1_bed.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_1_bed.jpg" class="w-full h-full object-cover" alt="Bedroom">
+            </button>
+          </div>
+          <div class="p-6">
+            <h4 class="font-serif font-bold text-xl text-pine-900 mb-1">Lake-Front Cabin</h4>
+            <p class="text-xs text-amber-800 font-semibold mb-3">Closest to Moira Lake Shoreline</p>
+            <p class="text-xs text-stone-600 leading-relaxed mb-4">
+              Two bedrooms (double beds), unobstructed sunset views over the water, private deck, and picnic table right on the lawn.
+            </p>
+            <div class="text-[11px] text-stone-600 space-y-1">
+              <div>• 4 Guests Max • 2 Bedrooms • Heating Furnace</div>
+              <div>• Kitchenette with fridge, microwave, gas stove</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <button onclick="openBookingModal('Cabin 1 - Lakefront')" class="w-full py-2.5 bg-pine-900 hover:bg-pine-800 text-white font-cinzel text-xs tracking-wider rounded transition-colors">
+            SELECT CABIN 1
+          </button>
+        </div>
+      </div>
+
+      <!-- Cabin 2 -->
+      <div class="bg-white rounded-xl overflow-hidden heritage-border flex flex-col justify-between">
+        <div>
+          <div class="relative h-56 bg-stone-900 overflow-hidden">
+            <img id="cabin-2-main-img" src="assets/cabins/cabin_2_exterior.jpg" alt="Cabin 2 Under the Oak" class="w-full h-full object-cover transition-all duration-300">
+            <div class="absolute top-3 left-3 bg-pine-900 text-white font-cinzel text-xs font-bold px-2.5 py-1 rounded shadow">
+              CABIN #2
+            </div>
+            <div class="absolute bottom-3 right-3 bg-white/95 text-pine-900 font-bold text-xs px-2 py-1 rounded shadow">
+              $150 Wkdy / $175 Wknd
+            </div>
+          </div>
+          <!-- Interactive Photo Switcher Strip -->
+          <div class="flex gap-2 p-3 bg-stone-50 border-b border-camp-border overflow-x-auto">
+            <button onclick="switchCabinPhoto('cabin-2-main-img', 'assets/cabins/cabin_2_exterior.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 ring-2 ring-amber-500 focus:outline-none">
+              <img src="assets/cabins/cabin_2_exterior.jpg" class="w-full h-full object-cover" alt="Exterior Front">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-2-main-img', 'assets/cabins/cabin_2_inside.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_2_inside.jpg" class="w-full h-full object-cover" alt="Inside Cabin">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-2-main-img', 'assets/cabins/cabin_2_oak.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_2_oak.jpg" class="w-full h-full object-cover" alt="Oak Tree Setting">
+            </button>
+          </div>
+          <div class="p-6">
+            <h4 class="font-serif font-bold text-xl text-pine-900 mb-1">Under The Oak</h4>
+            <p class="text-xs text-amber-800 font-semibold mb-3">Canopied by Giant Heritage Oak</p>
+            <p class="text-xs text-stone-600 leading-relaxed mb-4">
+              Sheltered in the shade of our landmark oak tree. Features lake views from the front deck, warm wood paneling, and stone walkway.
+            </p>
+            <div class="text-[11px] text-stone-600 space-y-1">
+              <div>• 4 Guests Max • 2 Bedrooms • Heating Furnace</div>
+              <div>• Shaded lakeside deck & outdoor campfire pit</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <button onclick="openBookingModal('Cabin 2 - Under the Oak')" class="w-full py-2.5 bg-pine-900 hover:bg-pine-800 text-white font-cinzel text-xs tracking-wider rounded transition-colors">
+            SELECT CABIN 2
+          </button>
+        </div>
+      </div>
+
+      <!-- Cabin 3 -->
+      <div class="bg-white rounded-xl overflow-hidden heritage-border flex flex-col justify-between">
+        <div>
+          <div class="relative h-56 bg-stone-900 overflow-hidden">
+            <img id="cabin-3-main-img" src="assets/cabins/cabin_3_exterior.jpg" alt="Cabin 3 Delightful Lake" class="w-full h-full object-cover transition-all duration-300">
+            <div class="absolute top-3 left-3 bg-pine-900 text-white font-cinzel text-xs font-bold px-2.5 py-1 rounded shadow">
+              CABIN #3
+            </div>
+            <div class="absolute bottom-3 right-3 bg-white/95 text-pine-900 font-bold text-xs px-2 py-1 rounded shadow">
+              $150 Wkdy / $175 Wknd
+            </div>
+          </div>
+          <!-- Interactive Photo Switcher Strip -->
+          <div class="flex gap-2 p-3 bg-stone-50 border-b border-camp-border overflow-x-auto">
+            <button onclick="switchCabinPhoto('cabin-3-main-img', 'assets/cabins/cabin_3_exterior.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 ring-2 ring-amber-500 focus:outline-none">
+              <img src="assets/cabins/cabin_3_exterior.jpg" class="w-full h-full object-cover" alt="Front Door">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-3-main-img', 'assets/cabins/cabin_3_inside.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_3_inside.jpg" class="w-full h-full object-cover" alt="Inside View">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-3-main-img', 'assets/cabins/cabin_3_launch.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_3_launch.jpg" class="w-full h-full object-cover" alt="Boat Launch">
+            </button>
+          </div>
+          <div class="p-6">
+            <h4 class="font-serif font-bold text-xl text-pine-900 mb-1">Delightful Lake Cabin</h4>
+            <p class="text-xs text-amber-800 font-semibold mb-3">Direct Boat Ramp & Dock Access</p>
+            <p class="text-xs text-stone-600 leading-relaxed mb-4">
+              Positioned nearest to the boat launch and docks. The ultimate choice for anglers planning dawn launches and quick water access.
+            </p>
+            <div class="text-[11px] text-stone-600 space-y-1">
+              <div>• 4 Guests Max • 2 Bedrooms • Heating Furnace</div>
+              <div>• Fastest boat launch access on property</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <button onclick="openBookingModal('Cabin 3 - Delightful Lake')" class="w-full py-2.5 bg-pine-900 hover:bg-pine-800 text-white font-cinzel text-xs tracking-wider rounded transition-colors">
+            SELECT CABIN 3
+          </button>
+        </div>
+      </div>
+
+      <!-- Cabin 4 -->
+      <div class="bg-white rounded-xl overflow-hidden heritage-border flex flex-col justify-between">
+        <div>
+          <div class="relative h-56 bg-stone-900 overflow-hidden">
+            <img id="cabin-4-main-img" src="assets/cabins/cabin_4_exterior.jpg" alt="Cabin 4 Housekeeping" class="w-full h-full object-cover transition-all duration-300">
+            <div class="absolute top-3 left-3 bg-pine-900 text-white font-cinzel text-xs font-bold px-2.5 py-1 rounded shadow">
+              CABIN #4
+            </div>
+            <div class="absolute bottom-3 right-3 bg-white/95 text-pine-900 font-bold text-xs px-2 py-1 rounded shadow">
+              $150 Wkdy / $175 Wknd
+            </div>
+          </div>
+          <!-- Interactive Photo Switcher Strip -->
+          <div class="flex gap-2 p-3 bg-stone-50 border-b border-camp-border overflow-x-auto">
+            <button onclick="switchCabinPhoto('cabin-4-main-img', 'assets/cabins/cabin_4_exterior.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 ring-2 ring-amber-500 focus:outline-none">
+              <img src="assets/cabins/cabin_4_exterior.jpg" class="w-full h-full object-cover" alt="Exterior">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-4-main-img', 'assets/cabin_4_inside.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_4_inside.jpg" class="w-full h-full object-cover" alt="Interior">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-4-main-img', 'assets/cabins/cabin_4_view.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_4_view.jpg" class="w-full h-full object-cover" alt="Lawn & View">
+            </button>
+          </div>
+          <div class="p-6">
+            <h4 class="font-serif font-bold text-xl text-pine-900 mb-1">Housekeeping Cottage</h4>
+            <p class="text-xs text-amber-800 font-semibold mb-3">Spacious Lawn & Game Area</p>
+            <p class="text-xs text-stone-600 leading-relaxed mb-4">
+              Quiet setting surrounded by manicured green lawns and apple trees. Ideal for families wanting extra space for lawn games and campfires.
+            </p>
+            <div class="text-[11px] text-stone-600 space-y-1">
+              <div>• 4 Guests Max • 2 Bedrooms • Heating Furnace</div>
+              <div>• Large lawn perimeter & campfire circle</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <button onclick="openBookingModal('Cabin 4 - Housekeeping')" class="w-full py-2.5 bg-pine-900 hover:bg-pine-800 text-white font-cinzel text-xs tracking-wider rounded transition-colors">
+            SELECT CABIN 4
+          </button>
+        </div>
+      </div>
+
+      <!-- Cabin 5 -->
+      <div class="bg-white rounded-xl overflow-hidden heritage-border flex flex-col justify-between">
+        <div>
+          <div class="relative h-56 bg-stone-900 overflow-hidden">
+            <img id="cabin-5-main-img" src="assets/cabins/cabin_5_exterior.jpg" alt="Cabin 5 Quiet Cabin" class="w-full h-full object-cover transition-all duration-300">
+            <div class="absolute top-3 left-3 bg-pine-900 text-white font-cinzel text-xs font-bold px-2.5 py-1 rounded shadow">
+              CABIN #5
+            </div>
+            <div class="absolute bottom-3 right-3 bg-white/95 text-pine-900 font-bold text-xs px-2 py-1 rounded shadow">
+              $150 Wkdy / $175 Wknd
+            </div>
+          </div>
+          <!-- Interactive Photo Switcher Strip -->
+          <div class="flex gap-2 p-3 bg-stone-50 border-b border-camp-border overflow-x-auto">
+            <button onclick="switchCabinPhoto('cabin-5-main-img', 'assets/cabins/cabin_5_exterior.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 ring-2 ring-amber-500 focus:outline-none">
+              <img src="assets/cabins/cabin_5_exterior.jpg" class="w-full h-full object-cover" alt="Exterior">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-5-main-img', 'assets/cabins/cabin_5_inside.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_5_inside.jpg" class="w-full h-full object-cover" alt="Interior">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-5-main-img', 'assets/cabins/cabin_5_lakeview.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_5_lakeview.jpg" class="w-full h-full object-cover" alt="Lakeview">
+            </button>
+          </div>
+          <div class="p-6">
+            <h4 class="font-serif font-bold text-xl text-pine-900 mb-1">Quiet Cabin on Lake</h4>
+            <p class="text-xs text-amber-800 font-semibold mb-3">Tucked-Back Tranquility</p>
+            <p class="text-xs text-stone-600 leading-relaxed mb-4">
+              Offers maximum peace and quiet with gorgeous morning light. Two outlets for device charging, cozy gas heating, and lake breeze cooling.
+            </p>
+            <div class="text-[11px] text-stone-600 space-y-1">
+              <div>• 4 Guests Max • 2 Bedrooms • Heating Furnace</div>
+              <div>• Peaceful location for reading & relaxing</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <button onclick="openBookingModal('Cabin 5 - Quiet Cabin')" class="w-full py-2.5 bg-pine-900 hover:bg-pine-800 text-white font-cinzel text-xs tracking-wider rounded transition-colors">
+            SELECT CABIN 5
+          </button>
+        </div>
+      </div>
+
+      <!-- Cabin 6 -->
+      <div class="bg-white rounded-xl overflow-hidden heritage-border flex flex-col justify-between">
+        <div>
+          <div class="relative h-56 bg-stone-900 overflow-hidden">
+            <img id="cabin-6-main-img" src="assets/cabins/cabin_6_exterior.jpg" alt="Cabin 6 Relaxing Cabin" class="w-full h-full object-cover transition-all duration-300">
+            <div class="absolute top-3 left-3 bg-pine-900 text-white font-cinzel text-xs font-bold px-2.5 py-1 rounded shadow">
+              CABIN #6
+            </div>
+            <div class="absolute bottom-3 right-3 bg-white/95 text-pine-900 font-bold text-xs px-2 py-1 rounded shadow">
+              $150 Wkdy / $175 Wknd
+            </div>
+          </div>
+          <!-- Interactive Photo Switcher Strip -->
+          <div class="flex gap-2 p-3 bg-stone-50 border-b border-camp-border overflow-x-auto">
+            <button onclick="switchCabinPhoto('cabin-6-main-img', 'assets/cabins/cabin_6_exterior.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 ring-2 ring-amber-500 focus:outline-none">
+              <img src="assets/cabins/cabin_6_exterior.jpg" class="w-full h-full object-cover" alt="Exterior Front">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-6-main-img', 'assets/cabins/cabin_6_inside.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_6_inside.jpg" class="w-full h-full object-cover" alt="Pine Bedroom">
+            </button>
+            <button onclick="switchCabinPhoto('cabin-6-main-img', 'assets/cabins/cabin_6_trees.jpg', this)" class="w-14 h-10 rounded border border-stone-300 overflow-hidden flex-shrink-0 focus:outline-none">
+              <img src="assets/cabins/cabin_6_trees.jpg" class="w-full h-full object-cover" alt="Apple Trees Grounds">
+            </button>
+          </div>
+          <div class="p-6">
+            <h4 class="font-serif font-bold text-xl text-pine-900 mb-1">Relaxing Cabin</h4>
+            <p class="text-xs text-amber-800 font-semibold mb-3">Near Barn & Apple Trees</p>
+            <p class="text-xs text-stone-600 leading-relaxed mb-4">
+              Rustic 2-bedroom cabin with double beds plus extra daybed. Quick stroll to the comfort station and freshwater well pump.
+            </p>
+            <div class="text-[11px] text-stone-600 space-y-1">
+              <div>• 4 Guests Max • 2 Bedrooms + Daybed • Heating Furnace</div>
+              <div>• Close to fresh water well pump</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <button onclick="openBookingModal('Cabin 6 - Relaxing Cabin')" class="w-full py-2.5 bg-pine-900 hover:bg-pine-800 text-white font-cinzel text-xs tracking-wider rounded transition-colors">
+            SELECT CABIN 6
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Transparent Housekeeping Disclaimer Banner -->
+    <div class="mt-12 p-6 rounded-xl bg-amber-50 border border-amber-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 bg-amber-600 text-white rounded-lg">
+          <i data-lucide="info" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-sm text-amber-950 font-serif">What to Pack for Your Housekeeping Stay</h4>
+          <p class="text-xs text-amber-900/80">
+            Self-catering cottage tradition: Guests bring their own bed sheets, pillows, blankets, and bath towels. Leave cabin "broom clean". Central comfort station has hot showers & flush toilets!
+          </p>
+        </div>
+      </div>
+      <a href="tel:6138130455" class="text-xs font-bold font-cinzel text-amber-900 whitespace-nowrap underline hover:text-amber-700">
+        Questions? Call Sharon at (613) 813-0455
+      </a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-pine-950 text-white border-t border-pine-900 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded bg-pine-900 border border-amber-600/40 flex items-center justify-center text-amber-400">
+              <i data-lucide="fish" class="w-5 h-5"></i>
+            </div>
+            <span class="font-cinzel font-bold text-lg text-white">BAILEY'S COTTAGES</span>
+          </div>
+          <p class="text-xs text-zinc-400 max-w-sm mb-4 leading-relaxed">
+            Family-run lakeside resort operating continuously on Moira Lake since 1943. Providing authentic Canadian cottage traditions, rustic housekeeping cabins, and trophy fishing memories for over 80 years.
+          </p>
+          <div class="text-xs text-zinc-400 space-y-1">
+            <div><strong>Address:</strong> 141 Lahey Rd, Madoc, Ontario K0K 2K0</div>
+            <div><strong>Phone:</strong> (613) 813-0455</div>
+            <div><strong>Email:</strong> baileyscottages@gmail.com</div>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="font-cinzel text-xs font-bold text-amber-400 uppercase tracking-wider mb-3">Quick Links</h5>
+          <ul class="text-xs space-y-2 text-zinc-400">
+            <li><a href="#species" class="hover:text-white">Moira Lake Target Species</a></li>
+            <li><a href="#calendar" class="hover:text-white">Seasonal Fishing Playbook</a></li>
+            <li><a href="#rentals" class="hover:text-white">Boat & Gear Rental Rates</a></li>
+            <li><a href="#local-guide" class="hover:text-white">Hidden Goldmine Bakery & Madoc</a></li>
+            <li><a href="#cabins" class="hover:text-white">Cabins 1 through 6</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-cinzel text-xs font-bold text-amber-400 uppercase tracking-wider mb-3">Direct Booking Policy</h5>
+          <p class="text-xs text-zinc-400 leading-relaxed mb-3">
+            50% deposit due at reservation. Remaining balance due 7 days prior to check-in. Zero OTA service commissions when you book direct.
+          </p>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-pine-900 text-amber-300 text-[11px] font-semibold border border-pine-800">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+            4.8★ Google Business Rating
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-pine-900 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-zinc-500 gap-4">
+        <div>&copy; 1943-2026 Bailey's Cottages. All rights reserved. Moira Lake, Centre Hastings, ON.</div>
+        <div class="flex gap-4">
+          <a href="#cabins" class="hover:text-zinc-300">Rental Terms & Housekeeping</a>
+          <a href="https://www.ontario.ca/document/ontario-fishing-regulations-summary/fisheries-management-zone-18-fmz-18" target="_blank" rel="noopener" class="hover:text-zinc-300">Ontario FMZ 18 Fishing Rules</a>
+          <a href="tel:6138130455" class="hover:text-zinc-300">Direct Inquiries: (613) 813-0455</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CATCH PHOTO LIGHTBOX MODAL -->
+  <div id="catch-lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="relative max-w-4xl w-full bg-stone-900 border border-stone-700 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
+      <div class="p-4 bg-stone-950 border-b border-stone-800 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span id="catch-lightbox-badge" class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 font-cinzel text-[10px] font-bold uppercase tracking-wider"></span>
+          <h3 id="catch-lightbox-species" class="font-serif text-lg font-bold text-white"></h3>
+        </div>
+        <button onclick="closeCatchLightbox()" class="text-stone-400 hover:text-white p-2 rounded-lg hover:bg-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" aria-label="Close photo view">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div class="p-2 sm:p-4 bg-black flex items-center justify-center overflow-hidden flex-1 min-h-[300px] max-h-[60vh]">
+        <img id="catch-lightbox-img" src="" alt="Catch photo" class="max-w-full max-h-full object-contain rounded">
+      </div>
+      <div class="p-4 sm:p-5 bg-stone-950 border-t border-stone-800">
+        <h4 id="catch-lightbox-title" class="font-serif text-lg font-bold text-amber-400 mb-1"></h4>
+        <p id="catch-lightbox-meta" class="text-xs text-stone-400 font-semibold mb-2"></p>
+        <p id="catch-lightbox-desc" class="text-xs sm:text-sm text-stone-300 leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE BOOKING MODAL -->
+  <div id="booking-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl heritage-border animate-in fade-in duration-200">
+      
+      <div class="bg-pine-950 text-white p-6 border-b border-pine-900 flex justify-between items-center">
+        <div>
+          <span class="text-[10px] uppercase tracking-widest text-amber-400 font-cinzel font-bold block">Bailey's Cottages Direct Booking</span>
+          <h3 id="modal-title" class="font-serif text-xl font-bold">Reserve Cabin or Angler Package</h3>
+        </div>
+        <button onclick="closeBookingModal()" class="text-zinc-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleFormSubmit(event)" class="p-6 space-y-4 text-xs">
+        <div>
+          <label class="block font-semibold text-stone-700 mb-1">Selected Cabin / Package</label>
+          <input type="text" id="modal-selection-input" readonly class="w-full p-2.5 bg-stone-100 border border-stone-300 rounded font-bold text-pine-900">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1">Check-In Date</label>
+            <input type="date" required class="w-full p-2.5 border border-stone-300 rounded text-stone-800">
+          </div>
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1">Check-Out Date</label>
+            <input type="date" required class="w-full p-2.5 border border-stone-300 rounded text-stone-800">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1">Your Full Name</label>
+            <input type="text" placeholder="Your full name" required class="w-full p-2.5 border border-stone-300 rounded text-stone-800">
+          </div>
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1">Phone Number</label>
+            <input type="tel" placeholder="(613) 555-0123" required class="w-full p-2.5 border border-stone-300 rounded text-stone-800">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-stone-700 mb-1">Email Address</label>
+          <input type="email" placeholder="name@example.com" required class="w-full p-2.5 border border-stone-300 rounded text-stone-800">
+        </div>
+
+        <div>
+          <label class="block font-semibold text-stone-700 mb-1">Angling / Gear Add-Ons Needed?</label>
+          <select class="w-full p-2.5 border border-stone-300 rounded text-stone-800">
+            <option>None (Just the cabin)</option>
+            <option>14' Boat + 9.9HP Outboard ($85/day)</option>
+            <option>Private Boat Launch & Dock Slip ($20/day)</option>
+            <option>Canoe or Kayak ($35/day)</option>
+            <option>Firewood Bundles ($10/bundle)</option>
+          </select>
+        </div>
+
+        <div class="p-3 bg-amber-50 rounded border border-amber-200 text-[11px] text-amber-900">
+          ✓ <strong>No upfront credit card hold.</strong> Sharon or the team will confirm dates and email your 50% deposit invoice via Interac e-Transfer or Stripe.
+        </div>
+
+        <div class="pt-2 flex gap-3">
+          <button type="button" onclick="closeBookingModal()" class="flex-1 py-3 border border-stone-300 text-stone-700 rounded font-medium hover:bg-stone-50">
+            Cancel
+          </button>
+          <button type="submit" class="flex-1 py-3 bg-pine-900 hover:bg-pine-800 text-white font-cinzel font-bold rounded shadow transition-colors">
+            SUBMIT RESERVATION
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT STATE & INTERACTIONS -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // SEASONAL DATA
+    const seasons = {
+      spring: {
+        title: "Spring Season (May Long Weekend to June)",
+        badge: "Walleye Opener & Shallows",
+        overview: "Spring on Moira Lake kicks off with the 2nd Saturday in May Walleye and Northern Pike opener. As water temps hover between 50°F to 62°F, predator fish stage aggressively in shallow warming bays and rocky shoals.",
+        target: "Walleye, Northern Pike, Black Crappie",
+        hotzones: "Bays around river inflows, sand flats near reed beds, 6 to 12 ft depths",
+        tactics: "Slow vertical jigging with 1/8oz jigs tipped with live minnows or leeches; shallow jerkbaits retrieved with pauses.",
+        tip: "Dock fishing right off Bailey’s piers produces non-stop Crappie and Perch action for kids and beginners."
+      },
+      summer: {
+        title: "Summer Season (July to August)",
+        badge: "Bass Opener & Evening Trolling",
+        overview: "Water temperatures reach 70°F to 78°F. Bass season is in full swing with incredible smallmouth action on rocky humps and aggressive largemouth buried in lily pads. Early morning and late evening muskie hunts begin.",
+        target: "Smallmouth Bass, Largemouth Bass, Summer Muskie",
+        hotzones: "Sunken islands, rock reefs, cabbage weedlines in 12 to 20 ft water",
+        tactics: "Topwater frogs and buzzbaits at first light; drop-shot rigs and tube jigs on offshore rock structure midday.",
+        tip: "Take advantage of calm glassy lake mornings from 6:00 AM to 9:00 AM before boat traffic picks up."
+      },
+      fall: {
+        title: "Fall Season (September to November)",
+        badge: "Trophy Muskie Mecca & Fat Walleye",
+        overview: "The premier time for giant fish. Cooler water signals heavy feeding windows. Moira Lake's renowned trophy muskie (up to 50+ inches) move onto main lake points and steep drop-offs adjacent to deep water.",
+        target: "Giant Muskellunge, Trophy Walleye, Big Pike",
+        hotzones: "Steep drop-offs from 15 to 30 ft, deep green weed edges, main lake channels",
+        tactics: "High-speed trolling with 10-12 inch crankbaits; casting giant rubber Bulldawgs and Medusas with erratic pauses.",
+        tip: "Dress in warm layers, bring a heavy-duty release net, and pack a thermos of hot coffee from the Hidden Goldmine Bakery."
+      }
+    };
+
+    function setSeason(seasonKey) {
+      const data = seasons[seasonKey];
+      const display = document.getElementById('season-display');
+      
+      // Update buttons
+      ['spring', 'summer', 'fall'].forEach(k => {
+        const btn = document.getElementById(`btn-${k}`);
+        if (k === seasonKey) {
+          btn.className = "px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded transition-all bg-pine-900 text-white shadow";
+        } else {
+          btn.className = "px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded transition-all text-pine-900 hover:bg-stone-100";
+        }
+      });
+
+      // Update HTML
+      display.innerHTML = `
+        <div class="flex flex-col lg:flex-row justify-between items-start gap-6 mb-6 pb-6 border-b border-camp-border">
+          <div>
+            <span class="inline-block px-2.5 py-1 rounded bg-amber-100 text-amber-900 text-xs font-bold font-cinzel mb-2">
+              ${data.badge}
+            </span>
+            <h3 class="font-serif text-2xl font-bold text-pine-900">${data.title}</h3>
+          </div>
+          <button onclick="openBookingModal('Angler Trip - ' + '${data.title}')" class="px-5 py-2.5 bg-pine-900 hover:bg-pine-800 text-white font-cinzel text-xs font-bold rounded shadow">
+            BOOK A ${seasonKey.toUpperCase()} TRIP
+          </button>
+        </div>
+
+        <p class="text-stone-700 text-sm leading-relaxed mb-6">
+          ${data.overview}
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div class="p-4 rounded-lg bg-camp-cream border border-camp-border">
+            <span class="font-bold text-pine-900 block mb-1 flex items-center gap-1.5 font-cinzel">
+              <i data-lucide="target" class="w-4 h-4 text-amber-700"></i> Target Species & Depth
+            </span>
+            <p class="text-stone-600 mb-1"><strong>Fish:</strong> ${data.target}</p>
+            <p class="text-stone-600"><strong>Depths:</strong> ${data.hotzones}</p>
+          </div>
+          <div class="p-4 rounded-lg bg-camp-cream border border-camp-border">
+            <span class="font-bold text-pine-900 block mb-1 flex items-center gap-1.5 font-cinzel">
+              <i data-lucide="compass" class="w-4 h-4 text-amber-700"></i> Recommended Tactics
+            </span>
+            <p class="text-stone-600 mb-1">${data.tactics}</p>
+            <p class="text-amber-900 font-medium"><strong>Local Insight:</strong> ${data.tip}</p>
+          </div>
+        </div>
+      `;
+
+      lucide.createIcons();
+    }
+
+    // Initialize with spring
+    setSeason('spring');
+
+    // TRIP CALCULATOR STATE
+    const selectedGear = {};
+    const baseCabinCost = 300.00; // 2 nights x $150
+
+    function toggleGear(id, price, name) {
+      const btn = document.getElementById(`btn-gear-${id}`);
+      if (selectedGear[id]) {
+        delete selectedGear[id];
+        btn.textContent = "Add to Stay";
+        btn.className = "mt-1 text-xs px-3 py-1.5 rounded bg-pine-900 text-white font-medium hover:bg-pine-800";
+      } else {
+        selectedGear[id] = { price, name };
+        btn.textContent = "✓ Added";
+        btn.className = "mt-1 text-xs px-3 py-1.5 rounded bg-amber-600 text-white font-bold hover:bg-amber-500";
+      }
+      updateCalculator();
+    }
+
+    function updateCalculator() {
+      const listEl = document.getElementById('calculator-gear-list');
+      const totalEl = document.getElementById('calc-total');
+      const depositEl = document.getElementById('calc-deposit');
+
+      let gearTotal = 0;
+      const keys = Object.keys(selectedGear);
+
+      if (keys.length === 0) {
+        listEl.innerHTML = `<div class="text-zinc-400 italic">No extra equipment selected yet. Click "Add to Stay" above.</div>`;
+      } else {
+        listEl.innerHTML = keys.map(k => {
+          const item = selectedGear[k];
+          gearTotal += item.price;
+          return `
+            <div class="flex justify-between items-center text-zinc-200">
+              <span>+ ${item.name}</span>
+              <span class="font-mono text-white">$${item.price.toFixed(2)} CAD</span>
+            </div>
+          `;
+        }).join('');
+      }
+
+      const grandTotal = baseCabinCost + gearTotal;
+      const deposit = grandTotal * 0.5;
+
+      totalEl.textContent = `$${grandTotal.toFixed(2)} CAD`;
+      depositEl.textContent = `$${deposit.toFixed(2)} CAD`;
+    }
+
+    // SPECIES GUIDE FILTER & LIGHTBOX ENGINE
+    const catchesData = {
+    "muskie_1": {
+        "src": "assets/catches/muskie_01_bump_board.jpg",
+        "species": "Muskellunge (Esox masquinongy)",
+        "badge": "45+ INCH TROPHY",
+        "title": "45+ Inch Monster Muskie",
+        "card_tag": "MEASURED TROPHY",
+        "meta": "Moira Lake Basin \u2022 Handlebarz Bump Board",
+        "desc": "Trophy catch landed in boat by Bailey's guest. Note the sharp pointed caudal fin lobes, distinct vertical bar markings, and massive jaw span verified on the regulation bump board."
+    },
+    "muskie_2": {
+        "src": "assets/catches/muskie_02_dock_vertical.jpg",
+        "species": "Muskellunge (Esox masquinongy)",
+        "badge": "DOCKSIDE TROPHY",
+        "title": "Dockside Heavyweight Muskie",
+        "card_tag": "MARINA DOCK CATCH",
+        "meta": "Resort Launch Pier & Slips",
+        "desc": "Longtime camp angler holding a massive vertical trophy muskie landed right off the marina channel. Fish measures over 4 feet, extending from chest to boots."
+    },
+    "muskie_3": {
+        "src": "assets/catches/muskie_03_summer_boat.jpg",
+        "species": "Muskellunge (Esox masquinongy)",
+        "badge": "WEEDLINE RELEASE",
+        "title": "Summer Basin Muskie",
+        "card_tag": "SUMMER CASTING",
+        "meta": "Papoose Channel Deep Cabbage",
+        "desc": "Dark barred summer muskie landed after an aggressive strike on the edge of the deep cabbage beds, held for a quick boat photo prior to healthy release."
+    },
+    "muskie_4": {
+        "src": "assets/catches/muskie_04_horizontal_hold.jpg",
+        "species": "Muskellunge (Esox masquinongy)",
+        "badge": "OPEN WATER RELEASE",
+        "title": "Eastern Weedline Muskie",
+        "card_tag": "TROLLING CATCH",
+        "meta": "Eastern Shore Cabbage Shelf",
+        "desc": "Long adult muskie held horizontally with proper two-hand body support for zero spine stress, caught trolling large crankbaits along the 16-foot breakline."
+    },
+    "walleye_1": {
+        "src": "assets/catches/walleye_01_trophy_winter.jpg",
+        "species": "Walleye (Sander vitreus)",
+        "badge": "HEAVY TROPHY FEMALE",
+        "title": "Moira Lake Giant Walleye",
+        "card_tag": "TROPHY WALLEYE",
+        "meta": "Deep Kettle Basin \u2022 Late Autumn Catch",
+        "desc": "Massive coldwater trophy walleye landed by winter-geared guest. Unmistakable glassy opaque eyes, distinct white tip on lower tail lobe, and heavyweight golden belly."
+    },
+    "walleye_2": {
+        "src": "assets/catches/walleye_02_five_stringer.jpg",
+        "species": "Walleye (Sander vitreus)",
+        "badge": "5-FISH KEEPER STRINGER",
+        "title": "Golden Walleye Keepers",
+        "card_tag": "EVENING STRINGER",
+        "meta": "Stony Island Reefs \u2022 Sunset Drift",
+        "desc": "Textbook stringer of 5 golden keeper-slot walleyes landed drifting live minnows and jigs over offshore rock humps during the prime twilight feeding window."
+    },
+    "walleye_3": {
+        "src": "assets/catches/walleye_03_measured_board.jpg",
+        "species": "Walleye (Sander vitreus)",
+        "badge": "SLOT VERIFICATION",
+        "title": "Measured Tournament Walleye",
+        "card_tag": "SLOT VERIFIED",
+        "meta": "Boat Deck Bump Board Verification",
+        "desc": "Healthy golden-olive walleye laid out on measuring board inside boat, checking exact legal FMZ 18 slot compliance before heading to the livewell."
+    },
+    "walleye_4": {
+        "src": "assets/catches/walleye_04_cleaning_table.jpg",
+        "species": "Walleye (Sander vitreus) & Bass",
+        "badge": "TABLE HARVEST",
+        "title": "Shoreline Fish Fry Catch",
+        "card_tag": "CLEANING STATION",
+        "meta": "Bailey's Fish Cleaning Station",
+        "desc": "Fresh harvest of golden walleyes and rock smallmouth displayed on the camp cleaning station wooden table, ready for the evening cabin skillet fry."
+    },
+    "bass_1": {
+        "src": "assets/catches/bass_01_largemouth_boat.jpg",
+        "species": "Largemouth Bass (Micropterus salmoides)",
+        "badge": "BOAT CABBAGE BASS",
+        "title": "Heavy Cabbage Largemouth",
+        "card_tag": "TROPHY BASS",
+        "meta": "Green Island Weed Edges",
+        "desc": "Heavyweight largemouth bass landed in boat. Upper jaw extends well past the eye with classic deep dorsal notch and broad green sides."
+    },
+    "bass_2": {
+        "src": "assets/catches/bass_02_largemouth_heavy.jpg",
+        "species": "Largemouth Bass (Micropterus salmoides)",
+        "badge": "TOPWATER TOURNAMENT GIRTH",
+        "title": "Tournament Girth Largemouth",
+        "card_tag": "FOOTBALL BASS",
+        "meta": "Bailey's Bay Pad Fields",
+        "desc": "Thick, football-bodied largemouth bass caught at first light on a surface frog retrieved over dense pad fields in sheltered water."
+    },
+    "bass_3": {
+        "src": "assets/catches/bass_03_largemouth_weedline.jpg",
+        "species": "Largemouth Bass (Micropterus salmoides)",
+        "badge": "LILY PAD AMBUSH",
+        "title": "Lily Pad Pocket Bass",
+        "card_tag": "WEED POCKET",
+        "meta": "Western Shore Reeds & Pads",
+        "desc": "Solid keeper bass pulled out of tight weed pockets on a Texas-rigged soft plastic worm by angler in Reebok shirt."
+    },
+    "bass_4": {
+        "src": "assets/catches/bass_04_smallmouth_family.jpg",
+        "species": "Smallmouth Bass (Micropterus dolomieu)",
+        "badge": "FAMILY REEF BRONZE",
+        "title": "Bronze Smallmouth Reef Bass",
+        "card_tag": "FAMILY BRONZEBACK",
+        "meta": "Stony Island Boulder Humps",
+        "desc": "Father and daughter team celebrating a hard-fighting bronze smallmouth bass caught on light tackle drifting over offshore rock saddles."
+    },
+    "bass_5": {
+        "src": "assets/catches/bass_05_largemouth_beach.jpg",
+        "species": "Largemouth Bass (Micropterus salmoides)",
+        "badge": "SHORELINE BEACH CATCH",
+        "title": "Lakeside Camp Shore Bass",
+        "card_tag": "BEACH LANDING",
+        "meta": "Bailey's Beach & Docks",
+        "desc": "Two guest anglers landing a solid keeper bass right off the resort beach and dock edge during an afternoon shoreline casting session."
+    },
+    "pike_1": {
+        "src": "assets/catches/pike_01_giant_yamaha.jpg",
+        "species": "Northern Pike (Esox lucius)",
+        "badge": "LAKE APEX MONSTER",
+        "title": "Giant Moira Lake Northern Pike",
+        "card_tag": "GIANT PIKE",
+        "meta": "Main Lake Basin \u2022 Yamaha 90HP Boat",
+        "desc": "Huge northern pike held by guest in pink cap. Distinct bean-shaped light spots across dark olive sides, rounded tail fin lobes, and fully scaled cheeks."
+    },
+    "pike_2": {
+        "src": "assets/catches/pike_02_fall_heavyweight.jpg",
+        "species": "Northern Pike (Esox lucius)",
+        "badge": "FALL TROPHY FEEDER",
+        "title": "Fall Heavyweight Northern Pike",
+        "card_tag": "FALL HEAVYWEIGHT",
+        "meta": "North Bay Steep Breakline",
+        "desc": "Thick, broad-shouldered autumn pike landed by winter-jacketed angler trolling a large spoon along the dying cabbage edges."
+    },
+    "pike_3": {
+        "src": "assets/catches/pike_03_sunset_catch.jpg",
+        "species": "Northern Pike (Esox lucius)",
+        "badge": "GOLDEN HOUR TROLL",
+        "title": "Golden Sunset Northern Pike",
+        "card_tag": "SUNSET TROLL",
+        "meta": "Moira Lake Basin \u2022 Twilight Feed",
+        "desc": "Guest angler in red shirt holding a gorgeous golden-lit northern pike landed on an evening trolling pass right before twilight."
+    },
+    "pike_4": {
+        "src": "assets/catches/pike_04_boat_net_trophy.jpg",
+        "species": "Northern Pike (Esox lucius)",
+        "badge": "FAMILY BOAT LANDING",
+        "title": "Family Boat Northern Pike",
+        "card_tag": "FAMILY NET TROPHY",
+        "meta": "Central Basin \u2022 Landing Net",
+        "desc": "Father and young son in lifejacket proudly displaying an aggressive pike brought to the boat and securely cradled over the landing net."
+    },
+    "pike_5": {
+        "src": "assets/catches/pike_05_vertical_weedline.jpg",
+        "species": "Northern Pike (Esox lucius)",
+        "badge": "WEEDLINE SPOON FEEDER",
+        "title": "Weedline Feeder Pike",
+        "card_tag": "WEEDLINE FEEDER",
+        "meta": "Cabbage Bed Shallows",
+        "desc": "Fast-striking northern pike taken casting silver spoons along cabbage weedlines in 8 feet of water by angler in hoodie."
+    },
+    "panfish_1": {
+        "src": "assets/catches/panfish_01_black_crappie.jpg",
+        "species": "Black Crappie (Pomoxis nigromaculatus)",
+        "badge": "FAMILY DOCK MEMORY",
+        "title": "Speckled Black Crappie",
+        "card_tag": "SPECKLED CRAPPIE",
+        "meta": "Bailey's Launch Piers & Slips",
+        "desc": "Smiling young angler displaying a beautiful speckled black crappie caught right off the resort docks on light line and small jig. Classic family camp fishing memory."
+    }
+};
+
+    function filterSpeciesGuide(group) {
+      const blocks = document.querySelectorAll('.species-group-block');
+      const btnIds = ['btn-spec-all', 'btn-spec-muskie', 'btn-spec-walleye', 'btn-spec-bass', 'btn-spec-pike', 'btn-spec-panfish'];
+      
+      btnIds.forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+          btn.className = "px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded-lg border border-camp-border bg-white text-stone-700 hover:bg-stone-100 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500";
+        }
+      });
+
+      const activeBtn = document.getElementById(`btn-spec-${group}`);
+      if (activeBtn) {
+        activeBtn.className = "px-4 py-2 text-xs font-bold font-cinzel tracking-wider rounded-lg bg-pine-900 text-white shadow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500";
+      }
+
+      blocks.forEach(block => {
+        if (group === 'all' || block.getAttribute('data-species-group') === group) {
+          block.classList.remove('hidden');
+        } else {
+          block.classList.add('hidden');
+        }
+      });
+    }
+
+    function openCatchLightbox(catchId) {
+      const item = catchesData[catchId];
+      if (!item) return;
+
+      document.getElementById('catch-lightbox-img').src = item.src;
+      document.getElementById('catch-lightbox-species').textContent = item.species;
+      document.getElementById('catch-lightbox-badge').textContent = item.badge;
+      document.getElementById('catch-lightbox-title').textContent = item.title;
+      document.getElementById('catch-lightbox-meta').textContent = item.meta;
+      document.getElementById('catch-lightbox-desc').textContent = item.desc;
+      
+      const modal = document.getElementById('catch-lightbox-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeCatchLightbox() {
+      const modal = document.getElementById('catch-lightbox-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    // MODAL HANDLERS
+    function openBookingModal(selectionName) {
+      document.getElementById('modal-selection-input').value = selectionName;
+      document.getElementById('modal-title').textContent = "Reserve: " + selectionName;
+      const modal = document.getElementById('booking-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('booking-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeBookingModal();
+        closeCatchLightbox();
+      }
+    });
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert("Reservation request submitted! Sharon will review available dates and send your confirmation email within 2-4 hours. Thank you for booking direct with Bailey's Cottages!");
+      closeBookingModal();
+    }
+
+    // CABIN PHOTO SWITCHER
+    function switchCabinPhoto(imgId, newSrc, btnElement) {
+      const img = document.getElementById(imgId);
+      if (img) {
+        img.style.opacity = '0.5';
+        setTimeout(() => {
+          img.src = newSrc;
+          img.style.opacity = '1';
+        }, 150);
+      }
+      if (btnElement && btnElement.parentElement) {
+        const buttons = btnElement.parentElement.querySelectorAll('button');
+        buttons.forEach(b => b.classList.remove('ring-2', 'ring-amber-500'));
+        btnElement.classList.add('ring-2', 'ring-amber-500');
+      }
+    }
+
+    // ==========================================
+    // MOIRA LAKE INTERACTIVE MAP ENGINE
+    // ==========================================
+
+    const hotspotsData = [
+      {
+        id: "baileys",
+        name: "Bailey's Cottages & Boat Launch",
+        category: "camp",
+        categoryName: "CAMP HEADQUARTERS",
+        speciesType: "bass",
+        badgeClass: "bg-amber-100 text-amber-900 border-amber-300",
+        pinBg: "bg-amber-500 text-stone-950",
+        depth: "4 - 10 ft",
+        coords: [44.4925, -77.4615],
+        structure: "141 Lahey Road • Private Launch Ramp, Docks & Shoreline Shallows",
+        overview: "Your home base on Moira Lake. Features direct private boat ramp, stable slip moorings, safe fueling, and convenient fish cleaning station. Immediate dock access for panfish, crappie, and shoreline bass.",
+        target: "Panfish, Bass, Perch, Black Crappie",
+        bottom: "Sand, gravel ramp & dock pilings",
+        distance: "0.0 km (Home Base)",
+        window: "All season • Dawn & golden hour dusk",
+        lures: "Light slip bobbers with live worms or minnows right off the docks; weedless Ned rigs cast along the outer lilypads."
+      },
+      {
+        id: "papoose",
+        name: "Papoose Island Muskie Channel",
+        category: "muskie",
+        categoryName: "TROPHY MUSKIE MECCA",
+        speciesType: "muskie",
+        badgeClass: "bg-rose-100 text-rose-900 border-rose-300",
+        pinBg: "bg-rose-600 text-white",
+        depth: "12 - 22 ft",
+        coords: [44.4820, -77.4585],
+        structure: "Island Channel • Dense Cabbage Weedline to Steep Drop-Off",
+        overview: "The legendary heavyweight corridor. Papoose Island pinches the lake basin, creating gentle current flow and thick standing cabbage weedlines that drop sharply into 20+ ft water. Premier staging spot for 45\"+ trophy Muskellunge.",
+        target: "Muskellunge (Apex), Northern Pike",
+        bottom: "Lush cabbage weedbeds meeting rocky drop-off",
+        distance: "1.19 km (approx. 4 min boat run from Bailey's)",
+        window: "August through November • Overcast days and dusk",
+        lures: "Double-bladed #10 bucktails burned along the weed edge; large 9-inch rubber swimbaits and erratic gliders cast into deep pockets."
+      },
+      {
+        id: "stony",
+        name: "Stony Island Walleye Reef",
+        category: "walleye",
+        categoryName: "TABLE FARE HOTSPOT",
+        speciesType: "walleye",
+        badgeClass: "bg-amber-100 text-amber-900 border-amber-300",
+        pinBg: "bg-amber-600 text-white",
+        depth: "15 - 28 ft",
+        coords: [44.4695, -77.4530],
+        structure: "Offshore Hump • Glacial Boulders, Gravel Bars & Deep Saddle",
+        overview: "Submerged rock reefs and boulder piles off Stony Island's southern tip. Walleye congregate on the deep breaklines during midday and push up onto the 15-foot gravel saddles 30 minutes before sunset.",
+        target: "Walleye (Pickerel), Smallmouth Bass",
+        bottom: "Glacial rock boulders, gravel & hard clay",
+        distance: "2.64 km (approx. 9 min boat run from Bailey's)",
+        window: "May Opener & Autumn • 30 mins before/after dusk",
+        lures: "1/4 oz leadhead jigs tipped with minnows or leeches; deep-diving Rapala Shad Raps trolled at 1.5 to 2.0 mph across the 18 ft contour."
+      },
+      {
+        id: "green",
+        name: "Green Island Bass Shallows",
+        category: "bass",
+        categoryName: "TOPWATER ACTION",
+        speciesType: "bass",
+        badgeClass: "bg-emerald-100 text-emerald-900 border-emerald-300",
+        pinBg: "bg-emerald-600 text-white",
+        depth: "4 - 12 ft",
+        coords: [44.4760, -77.4670],
+        structure: "Sheltered Bay • Extensive Lilypads & Shallow Rock Outcrops",
+        overview: "A calm, protected bay on the lee side of Green Island filled with thick lilypad clusters and timber. Ideal for hard-hitting Largemouth ambush strikes and acrobatics on light tackle.",
+        target: "Largemouth Bass, Smallmouth Bass, Pike",
+        bottom: "Silt flats, sunken logs & lilypad root systems",
+        distance: "1.89 km (approx. 6 min boat run from Bailey's)",
+        window: "June to September • Glassy morning hours 6:00 to 9:00 AM",
+        lures: "Hollow-body topwater frogs walked across pads, 5-inch Senkos rigged weedless, and white spinnerbaits bumped off wood."
+      },
+      {
+        id: "deep_hole",
+        name: "North Basin 30ft Deep Hole",
+        category: "deep",
+        categoryName: "MAXIMUM DEPTH BASIN",
+        speciesType: "walleye",
+        badgeClass: "bg-blue-100 text-blue-900 border-blue-300",
+        pinBg: "bg-blue-800 text-white",
+        depth: "24 - 30 ft",
+        coords: [44.4845, -77.4540],
+        structure: "Glacial Kettle Basin • 30 ft Maximum Lake Sounding",
+        overview: "The deepest sounding on Moira Lake (30 feet / 9.1 meters). During dog days of summer in July and August, cooler water pools in this kettle basin, offering sanctuary for trophy walleye and suspended baitfish.",
+        target: "Deep Walleye, Fall Muskellunge, Sucker schools",
+        bottom: "Soft deep silt with gravel edge fringes",
+        distance: "1.07 km (approx. 3.5 min boat run from Bailey's)",
+        window: "Mid-July to August heatwaves & late October deep staging",
+        lures: "Heavy vibrating blade baits (Cicadas), 3/8 oz vertical drop spoons, and slow bottom bouncing nightcrawler harnesses."
+      },
+      {
+        id: "inflow",
+        name: "Moira River Inflow Delta",
+        category: "river",
+        categoryName: "SPRING OPENER HOTSPOT",
+        speciesType: "walleye",
+        badgeClass: "bg-cyan-100 text-cyan-900 border-cyan-300",
+        pinBg: "bg-cyan-600 text-white",
+        depth: "6 - 14 ft",
+        coords: [44.4975, -77.4725],
+        structure: "River Mouth • Oxygen-Rich Current Breaks & Sand Delta",
+        overview: "Where the Moira River pours down from Madoc into the lake. Spring runoff brings oxygen, nutrients, and schools of baitfish. Natural gathering spot for spring Walleye and Pike following the May opener.",
+        target: "Spring Walleye, Northern Pike, Yellow Perch",
+        bottom: "Sand delta, gravel wash & submerged driftwood",
+        distance: "1.03 km (approx. 3.5 min boat run from Bailey's)",
+        window: "May to early June • Daybreak and incoming rain fronts",
+        lures: "Suspending jerkbaits twitched slowly along current seams; drifting live minnows under pencil floats."
+      },
+      {
+        id: "weedline",
+        name: "Eastern Cabbage Weedline Drift",
+        category: "muskie",
+        categoryName: "TROLLING HIGHWAY",
+        speciesType: "muskie",
+        badgeClass: "bg-rose-100 text-rose-900 border-rose-300",
+        pinBg: "bg-rose-700 text-white",
+        depth: "14 - 20 ft",
+        coords: [44.4780, -77.4470],
+        structure: "Continuous Cabbage Wall • 1.5 km Trolling Shelf",
+        overview: "A continuous 1.5-kilometer band of healthy green cabbage weedline stretching along the eastern shoreline. Anglers run long trolling passes parallel to the 16-foot contour line for migrating predator fish.",
+        target: "Muskellunge, Heavy Northern Pike, Big Walleye",
+        bottom: "Standing green cabbage weeds dropping to soft mud",
+        distance: "1.98 km (approx. 6.5 min boat run from Bailey's)",
+        window: "September to November • Brisk fall northwest breezes",
+        lures: "10-inch custom wooden crankbaits (Believers, Grandmas) trolled at 3.5 mph with 25-35 ft of line out behind planar boards."
+      },
+      {
+        id: "outflow",
+        name: "Southern Moira River Outflow Reach",
+        category: "river",
+        categoryName: "CURRENT CHOKEPOINT",
+        speciesType: "bass",
+        badgeClass: "bg-orange-100 text-orange-900 border-orange-300",
+        pinBg: "bg-orange-600 text-white",
+        depth: "8 - 16 ft",
+        coords: [44.4605, -77.4515],
+        structure: "Lake Outlet • Narrowing Funnel & Steady Flow",
+        overview: "The southern constriction where Moira Lake empties back into the Moira River towards Belleville. Current accelerates through this funnel, creating active feeding lanes for bass and roaming pike.",
+        target: "Smallmouth Bass, Pike, Fall Walleye",
+        bottom: "Rock cobble, current carved troughs & bridge abutments",
+        distance: "3.65 km (approx. 12 min boat run from Bailey's)",
+        window: "Late Summer to Fall • Midday moving water",
+        lures: "Compact football head jigs in crayfish patterns; swimbaits on 3/8 oz swimbait heads rolled along bottom."
+      }
+    ];
+
+    let moiraMap = null;
+    let baseLayers = {};
+    let contoursLayerGroup = null;
+    let markersLayerGroup = null;
+    let currentHotspotId = 'baileys';
+    let markersMap = {};
+    let contoursVisible = true;
+
+    function initMoiraMap() {
+      const mapContainer = document.getElementById('moira-lake-map');
+      if (!mapContainer || typeof L === 'undefined') return;
+
+      // Center map on Moira Lake [44.478, -77.460], zoom 13
+      moiraMap = L.map('moira-lake-map', {
+        center: [44.478, -77.460],
+        zoom: 13,
+        minZoom: 12,
+        maxZoom: 17,
+        scrollWheelZoom: false
+      });
+
+      // Enable scroll zoom on focus
+      moiraMap.on('focus', () => { moiraMap.scrollWheelZoom.enable(); });
+
+      // Base layers
+      baseLayers.topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenTopoMap',
+        maxZoom: 17
+      });
+
+      baseLayers.satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; Esri World Imagery',
+        maxZoom: 18
+      });
+
+      baseLayers.osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 18
+      });
+
+      // Default base layer: Topo
+      baseLayers.topo.addTo(moiraMap);
+
+      // Layer groups
+      contoursLayerGroup = L.layerGroup().addTo(moiraMap);
+      markersLayerGroup = L.layerGroup().addTo(moiraMap);
+
+      // Add Bathymetric Contours
+      renderBathymetryContours();
+
+      // Add Hotspot Markers
+      renderHotspotMarkers('all');
+
+      // Populate Quick Directory List
+      populateHotspotDirectory();
+
+      // Mousemove sounder listener for HUD
+      moiraMap.on('mousemove', handleMapSounder);
+
+      setTimeout(() => {
+        moiraMap.invalidateSize();
+      }, 300);
+    }
+
+    function renderBathymetryContours() {
+      contoursLayerGroup.clearLayers();
+
+      // 0 - 5 ft Shallows Contour
+      const c5 = L.polygon([
+        [44.498, -77.475], [44.496, -77.468], [44.494, -77.460], [44.492, -77.452],
+        [44.488, -77.446], [44.482, -77.442], [44.475, -77.443], [44.468, -77.447],
+        [44.462, -77.450], [44.459, -77.453], [44.463, -77.458], [44.468, -77.462],
+        [44.473, -77.468], [44.479, -77.472], [44.485, -77.476], [44.492, -77.477],
+        [44.498, -77.475]
+      ], {
+        color: '#06b6d4',
+        weight: 1.5,
+        opacity: 0.8,
+        fillColor: '#a5f3fc',
+        fillOpacity: 0.35
+      }).bindTooltip("0 - 5 ft Depth: Shoreline Shallows & Reedbeds", { sticky: true });
+      contoursLayerGroup.addLayer(c5);
+
+      // 5 - 10 ft Drop-off Shelf
+      const c10 = L.polygon([
+        [44.493, -77.469], [44.491, -77.460], [44.488, -77.453], [44.483, -77.447],
+        [44.476, -77.447], [44.470, -77.451], [44.465, -77.454], [44.468, -77.459],
+        [44.474, -77.465], [44.480, -77.468], [44.487, -77.471], [44.493, -77.469]
+      ], {
+        color: '#0284c7',
+        weight: 1.5,
+        opacity: 0.85,
+        fillColor: '#38bdf8',
+        fillOpacity: 0.4
+      }).bindTooltip("5 - 10 ft Depth: Emergent Cabbage Weedline Break", { sticky: true });
+      contoursLayerGroup.addLayer(c10);
+
+      // 10 - 15 ft Mid-Lake Drop
+      const c15 = L.polygon([
+        [44.489, -77.463], [44.486, -77.454], [44.481, -77.450], [44.474, -77.451],
+        [44.469, -77.455], [44.472, -77.460], [44.478, -77.464], [44.485, -77.466],
+        [44.489, -77.463]
+      ], {
+        color: '#0369a1',
+        weight: 2,
+        opacity: 0.9,
+        fillColor: '#0284c7',
+        fillOpacity: 0.45
+      }).bindTooltip("10 - 15 ft Depth: Primary Feeding Shelf", { sticky: true });
+      contoursLayerGroup.addLayer(c15);
+
+      // 15 - 20 ft Deep Channels & Reefs
+      const c20North = L.polygon([
+        [44.487, -77.458], [44.485, -77.452], [44.481, -77.453], [44.483, -77.460], [44.487, -77.458]
+      ], {
+        color: '#1e40af',
+        weight: 2,
+        opacity: 0.95,
+        fillColor: '#1d4ed8',
+        fillOpacity: 0.55
+      }).bindTooltip("15 - 20 ft Depth: North Basin Deep Channel", { sticky: true });
+      contoursLayerGroup.addLayer(c20North);
+
+      const c20South = L.polygon([
+        [44.474, -77.454], [44.470, -77.454], [44.468, -77.457], [44.472, -77.458], [44.474, -77.454]
+      ], {
+        color: '#1e40af',
+        weight: 2,
+        opacity: 0.95,
+        fillColor: '#1d4ed8',
+        fillOpacity: 0.55
+      }).bindTooltip("15 - 20 ft Depth: Stony Reef Breakline", { sticky: true });
+      contoursLayerGroup.addLayer(c20South);
+
+      // 20 - 30 ft Maximum Depth Deep Holes
+      const c30North = L.polygon([
+        [44.4855, -77.4550], [44.4845, -77.4530], [44.4835, -77.4545], [44.4845, -77.4560]
+      ], {
+        color: '#172554',
+        weight: 2.5,
+        opacity: 1,
+        fillColor: '#1e3a8a',
+        fillOpacity: 0.75
+      }).bindTooltip("24 - 30 ft Max Depth: Glacial Kettle Hole", { sticky: true });
+      contoursLayerGroup.addLayer(c30North);
+
+      const c28South = L.polygon([
+        [44.4725, -77.4555], [44.4705, -77.4550], [44.4695, -77.4565], [44.4715, -77.4570]
+      ], {
+        color: '#172554',
+        weight: 2.5,
+        opacity: 1,
+        fillColor: '#1e3a8a',
+        fillOpacity: 0.75
+      }).bindTooltip("20 - 28 ft Depth: South Basin Sanctuary", { sticky: true });
+      contoursLayerGroup.addLayer(c28South);
+
+      // Landmark Islands Polygons
+      const papooseIsland = L.polygon([
+        [44.4828, -77.4592], [44.4822, -77.4575], [44.4812, -77.4585], [44.4818, -77.4598]
+      ], {
+        color: '#b45309',
+        weight: 2,
+        fillColor: '#15803d',
+        fillOpacity: 0.8
+      }).bindTooltip("Papoose Island (Landmark)", { permanent: true, direction: "center", className: "island-map-label font-bold text-[10px]" });
+      contoursLayerGroup.addLayer(papooseIsland);
+
+      const greenIsland = L.polygon([
+        [44.4770, -77.4680], [44.4760, -77.4655], [44.4748, -77.4668], [44.4758, -77.4688]
+      ], {
+        color: '#b45309',
+        weight: 2,
+        fillColor: '#15803d',
+        fillOpacity: 0.8
+      }).bindTooltip("Green Island (Landmark)", { permanent: true, direction: "center", className: "island-map-label font-bold text-[10px]" });
+      contoursLayerGroup.addLayer(greenIsland);
+
+      const stonyIsland = L.polygon([
+        [44.4705, -77.4538], [44.4695, -77.4518], [44.4685, -77.4530], [44.4695, -77.4545]
+      ], {
+        color: '#b45309',
+        weight: 2,
+        fillColor: '#78716c',
+        fillOpacity: 0.85
+      }).bindTooltip("Stony Island (Landmark)", { permanent: true, direction: "center", className: "island-map-label font-bold text-[10px]" });
+      contoursLayerGroup.addLayer(stonyIsland);
+
+      // Safe Boat Navigation Channel Lines from Bailey's Docks
+      const route1 = L.polyline([
+        [44.4925, -77.4615], [44.4880, -77.4590], [44.4820, -77.4585]
+      ], {
+        color: '#f59e0b',
+        weight: 2.5,
+        dashArray: '6, 6',
+        opacity: 0.9
+      }).bindTooltip("Bailey's to Papoose Island Run (4 min)", { sticky: true });
+      contoursLayerGroup.addLayer(route1);
+
+      const route2 = L.polyline([
+        [44.4820, -77.4585], [44.4760, -77.4560], [44.4695, -77.4530]
+      ], {
+        color: '#f59e0b',
+        weight: 2.5,
+        dashArray: '6, 6',
+        opacity: 0.9
+      }).bindTooltip("Papoose to Stony Island Reef Run (5 min)", { sticky: true });
+      contoursLayerGroup.addLayer(route2);
+    }
+
+    function renderHotspotMarkers(categoryFilter) {
+      markersLayerGroup.clearLayers();
+      markersMap = {};
+
+      hotspotsData.forEach(spot => {
+        if (categoryFilter !== 'all') {
+          const query = categoryFilter === 'muskie' ? 'musk' : categoryFilter.toLowerCase();
+          const matchCategory = spot.category === categoryFilter;
+          const matchSpecies = spot.speciesType === categoryFilter;
+          const matchTarget = spot.target.toLowerCase().includes(query) || spot.overview.toLowerCase().includes(query);
+          if (!matchCategory && !matchSpecies && !matchTarget) {
+            return;
+          }
+        }
+
+        const isBaileys = spot.id === 'baileys';
+        const iconHtml = `
+          <div class="relative group cursor-pointer flex items-center justify-center">
+            ${isBaileys ? '<div class="absolute -inset-1.5 rounded-full bg-amber-400 opacity-75 animate-ping"></div>' : ''}
+            <div class="w-8 h-8 rounded-full ${spot.pinBg} border-2 border-white shadow-lg flex items-center justify-center text-xs font-bold transition-transform transform group-hover:scale-125">
+              ${isBaileys ? '★' : spot.name.charAt(0)}
+            </div>
+          </div>
+        `;
+
+        const customIcon = L.divIcon({
+          className: 'custom-spot-marker',
+          html: iconHtml,
+          iconSize: [32, 32],
+          iconAnchor: [16, 16]
+        });
+
+        const marker = L.marker(spot.coords, { icon: customIcon });
+        marker.bindTooltip(`<strong>${spot.name}</strong><br><span class="text-xs">${spot.depth} • ${spot.target}</span>`, {
+          direction: 'top',
+          offset: [0, -16]
+        });
+
+        marker.on('click', () => {
+          selectHotspot(spot.id);
+        });
+
+        markersLayerGroup.addLayer(marker);
+        markersMap[spot.id] = marker;
+      });
+    }
+
+    function populateHotspotDirectory() {
+      const listEl = document.getElementById('hotspot-directory-list');
+      if (!listEl) return;
+
+      listEl.innerHTML = hotspotsData.map(spot => `
+        <button onclick="selectHotspot('${spot.id}')" id="dir-item-${spot.id}" class="w-full text-left p-2 rounded border border-stone-200 hover:border-amber-400 bg-stone-50 hover:bg-amber-50/50 transition-colors flex items-center justify-between text-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500">
+          <div class="truncate pr-2">
+            <span class="font-bold text-pine-900 block truncate">${spot.name}</span>
+            <span class="text-[11px] text-stone-600 block truncate">${spot.depth} • ${spot.target}</span>
+          </div>
+          <span class="font-mono text-[10px] font-bold text-amber-900 bg-amber-100 px-1.5 py-0.5 rounded flex-shrink-0">
+            ${spot.distance.split(' ')[0]} km
+          </span>
+        </button>
+      `).join('');
+
+      highlightDirectoryItem(currentHotspotId);
+    }
+
+    function highlightDirectoryItem(id) {
+      document.querySelectorAll('#hotspot-directory-list button').forEach(b => {
+        b.classList.remove('ring-2', 'ring-amber-500', 'bg-amber-50');
+      });
+      const activeBtn = document.getElementById(`dir-item-${id}`);
+      if (activeBtn) {
+        activeBtn.classList.add('ring-2', 'ring-amber-500', 'bg-amber-50');
+      }
+    }
+
+    function selectHotspot(id) {
+      const spot = hotspotsData.find(s => s.id === id);
+      if (!spot) return;
+
+      currentHotspotId = id;
+
+      // Update Detail Box
+      document.getElementById('detail-category-badge').className = `px-2.5 py-1 text-[11px] font-bold rounded border ${spot.badgeClass}`;
+      document.getElementById('detail-category-badge').textContent = spot.categoryName;
+      document.getElementById('detail-depth-badge').textContent = `${spot.depth} Depth`;
+      document.getElementById('detail-name').textContent = spot.name;
+      document.getElementById('detail-structure').textContent = spot.structure;
+      document.getElementById('detail-overview').textContent = spot.overview;
+      document.getElementById('detail-target').textContent = spot.target;
+      document.getElementById('detail-bottom').textContent = spot.bottom;
+      document.getElementById('detail-distance').textContent = spot.distance;
+      document.getElementById('detail-gps').textContent = `${spot.coords[0].toFixed(4)}° N, ${Math.abs(spot.coords[1]).toFixed(4)}° W`;
+      document.getElementById('detail-window').textContent = spot.window;
+      document.getElementById('detail-lures').textContent = spot.lures;
+
+      highlightDirectoryItem(id);
+
+      if (moiraMap) {
+        moiraMap.flyTo(spot.coords, 15, { duration: 1.2 });
+      }
+
+      lucide.createIcons();
+    }
+
+    function zoomToCurrentHotspot() {
+      const spot = hotspotsData.find(s => s.id === currentHotspotId);
+      if (spot && moiraMap) {
+        moiraMap.flyTo(spot.coords, 16, { duration: 1.0 });
+      }
+    }
+
+    function centerOnBaileys() {
+      selectHotspot('baileys');
+    }
+
+    function setMapBaseLayer(mode) {
+      if (!moiraMap) return;
+
+      ['topo', 'satellite', 'osm'].forEach(k => {
+        if (moiraMap.hasLayer(baseLayers[k])) {
+          moiraMap.removeLayer(baseLayers[k]);
+        }
+      });
+
+      if (baseLayers[mode]) {
+        baseLayers[mode].addTo(moiraMap);
+      }
+
+      // Update button styles
+      ['btn-layer-topo', 'btn-layer-sat', 'btn-layer-osm'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+          btn.className = "px-3 py-1.5 text-xs font-semibold rounded transition-all text-stone-700 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500";
+        }
+      });
+
+      const activeBtnId = mode === 'topo' ? 'btn-layer-topo' : (mode === 'satellite' ? 'btn-layer-sat' : 'btn-layer-osm');
+      const activeBtn = document.getElementById(activeBtnId);
+      if (activeBtn) {
+        activeBtn.className = "px-3 py-1.5 text-xs font-semibold rounded transition-all bg-pine-900 text-white shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500";
+      }
+    }
+
+    function filterMapHotspots(category) {
+      renderHotspotMarkers(category);
+
+      ['btn-spot-all', 'btn-spot-muskie', 'btn-spot-walleye', 'btn-spot-bass'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+          btn.className = "px-2.5 py-1.5 text-xs font-semibold rounded bg-stone-100 text-stone-700 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500";
+        }
+      });
+
+      const activeId = `btn-spot-${category}`;
+      const activeBtn = document.getElementById(activeId);
+      if (activeBtn) {
+        activeBtn.className = "px-2.5 py-1.5 text-xs font-bold rounded bg-amber-600 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500";
+      }
+    }
+
+    function toggleContours() {
+      if (!moiraMap || !contoursLayerGroup) return;
+
+      contoursVisible = !contoursVisible;
+      if (contoursVisible) {
+        moiraMap.addLayer(contoursLayerGroup);
+        document.getElementById('label-toggle-contours').textContent = "Contours: ON";
+      } else {
+        moiraMap.removeLayer(contoursLayerGroup);
+        document.getElementById('label-toggle-contours').textContent = "Contours: OFF";
+      }
+    }
+
+    function handleMapSounder(e) {
+      const hud = document.getElementById('hud-sounder');
+      if (!hud) return;
+
+      const lat = e.latlng.lat;
+      const lng = e.latlng.lng;
+
+      // Distance to north deep hole [44.4845, -77.4540]
+      const dNorth = Math.hypot(lat - 44.4845, lng - (-77.4540));
+      // Distance to south deep basin [44.4715, -77.4560]
+      const dSouth = Math.hypot(lat - 44.4715, lng - (-77.4560));
+      const minD = Math.min(dNorth, dSouth);
+
+      let depthFt = 0;
+      let structure = "Shoreline Shallows / Sand";
+
+      if (minD < 0.003) {
+        depthFt = Math.round(26 + (0.003 - minD) * 1333);
+        structure = "Glacial Kettle Basin (Deep Hole Silt)";
+      } else if (minD < 0.007) {
+        depthFt = Math.round(18 + (0.007 - minD) * 2000);
+        structure = "Rock Reef Saddle & Deep Drop";
+      } else if (minD < 0.012) {
+        depthFt = Math.round(12 + (0.012 - minD) * 1200);
+        structure = "Cabbage Weedline Shelf";
+      } else if (minD < 0.018) {
+        depthFt = Math.round(6 + (0.018 - minD) * 1000);
+        structure = "Weedbeds & Lilypad Transition";
+      } else {
+        depthFt = Math.round(2 + Math.random() * 3);
+        structure = "Shallow Shoreline / Reeds";
+      }
+
+      if (depthFt > 30) depthFt = 30;
+      if (depthFt < 2) depthFt = 2;
+
+      hud.textContent = `${lat.toFixed(4)}°N, ${Math.abs(lng).toFixed(4)}°W • Sounding: ~${depthFt} ft • ${structure}`;
+    }
+
+    // Initialize map on window load
+    window.addEventListener('DOMContentLoaded', () => {
+      initMoiraMap();
+    });
+  </script>
+
+</body>
+</html>

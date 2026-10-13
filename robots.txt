@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://baileys-cottages.pages.dev/sitemap.xml

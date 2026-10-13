@@ -1,0 +1,19 @@
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.tmp
+.vscode/
+.idea/
+
+# Node
+node_modules/
+.wrangler/
+
+# Python
+__pycache__/
+*.pyc
+
+# Local Test Screenshots & Large Captures
+*.log
+live_full_page.png
+gallery_preview.png

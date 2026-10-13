@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bailey's Cottages - Facebook Photo Archive (71 Unique Photos)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+  </style>
+</head>
+<body class="bg-stone-900 text-stone-100 min-h-screen">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-30 bg-stone-950/95 backdrop-blur border-b border-stone-800 px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <a href="index.html" class="p-2 rounded bg-stone-800 hover:bg-stone-700 text-amber-400">
+        <i data-lucide="arrow-left" class="w-5 h-5"></i>
+      </a>
+      <div>
+        <h1 class="font-cinzel font-bold text-lg text-amber-400 tracking-wider">BAILEY'S COTTAGES: FACEBOOK ARCHIVE</h1>
+        <p class="text-xs text-stone-400">Profile 100038930845077 • 71 Verified Unique High-Res Photos (0 Duplicates)</p>
+      </div>
+    </div>
+    
+    <!-- CATEGORY FILTER BUTTONS -->
+    <div class="flex items-center gap-2 text-xs font-semibold">
+      <button onclick="filterPhotos('all')" id="btn-all" class="px-3 py-1.5 rounded bg-amber-600 text-white font-bold">All (71)</button>
+      <button onclick="filterPhotos('Fishing & Catches')" id="btn-fish" class="px-3 py-1.5 rounded bg-stone-800 text-stone-300 hover:bg-stone-700">Fish Catches (19)</button>
+      <button onclick="filterPhotos('Waterfront & Grounds')" id="btn-ground" class="px-3 py-1.5 rounded bg-stone-800 text-stone-300 hover:bg-stone-700">Waterfront & Docks (31)</button>
+      <button onclick="filterPhotos('Camp Life & Guests')" id="btn-camp" class="px-3 py-1.5 rounded bg-stone-800 text-stone-300 hover:bg-stone-700">Camp Life & Games (21)</button>
+    </div>
+  </header>
+
+  <!-- GALLERY GRID -->
+  <main class="max-w-7xl mx-auto p-6">
+    <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      <!-- Photos populated by JS -->
+    </div>
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-stone-400 hover:text-white p-2">
+      <i data-lucide="x" class="w-8 h-8"></i>
+    </button>
+    <div class="max-w-4xl max-h-[90vh] flex flex-col items-center">
+      <img id="lightbox-img" src="" class="max-w-full max-h-[80vh] object-contain rounded shadow-2xl">
+      <div id="lightbox-caption" class="mt-4 text-sm text-stone-300 text-center font-medium"></div>
+    </div>
+  </div>
+
+  <script>
+    const photos = [{"id": 1, "filename": "photo_001.jpg", "src": "assets/fb_photos/photo_001.jpg", "size_kb": 115.6, "category": "Waterfront & Grounds"}, {"id": 2, "filename": "photo_002.jpg", "src": "assets/fb_photos/photo_002.jpg", "size_kb": 40.9, "category": "Fishing & Catches"}, {"id": 3, "filename": "photo_003.jpg", "src": "assets/fb_photos/photo_003.jpg", "size_kb": 40.0, "category": "Waterfront & Grounds"}, {"id": 4, "filename": "photo_004.jpg", "src": "assets/fb_photos/photo_004.jpg", "size_kb": 35.2, "category": "Camp Life & Guests"}, {"id": 5, "filename": "photo_005.jpg", "src": "assets/fb_photos/photo_005.jpg", "size_kb": 34.9, "category": "Camp Life & Guests"}, {"id": 6, "filename": "photo_006.jpg", "src": "assets/fb_photos/photo_006.jpg", "size_kb": 34.8, "category": "Fishing & Catches"}, {"id": 7, "filename": "photo_007.jpg", "src": "assets/fb_photos/photo_007.jpg", "size_kb": 34.5, "category": "Fishing & Catches"}, {"id": 8, "filename": "photo_008.jpg", "src": "assets/fb_photos/photo_008.jpg", "size_kb": 31.6, "category": "Waterfront & Grounds"}, {"id": 9, "filename": "photo_009.jpg", "src": "assets/fb_photos/photo_009.jpg", "size_kb": 30.9, "category": "Fishing & Catches"}, {"id": 10, "filename": "photo_010.jpg", "src": "assets/fb_photos/photo_010.jpg", "size_kb": 29.5, "category": "Fishing & Catches"}, {"id": 11, "filename": "photo_011.jpg", "src": "assets/fb_photos/photo_011.jpg", "size_kb": 29.4, "category": "Camp Life & Guests"}, {"id": 12, "filename": "photo_012.jpg", "src": "assets/fb_photos/photo_012.jpg", "size_kb": 28.7, "category": "Camp Life & Guests"}, {"id": 13, "filename": "photo_013.jpg", "src": "assets/fb_photos/photo_013.jpg", "size_kb": 27.9, "category": "Waterfront & Grounds"}, {"id": 14, "filename": "photo_014.jpg", "src": "assets/fb_photos/photo_014.jpg", "size_kb": 27.4, "category": "Camp Life & Guests"}, {"id": 15, "filename": "photo_016.jpg", "src": "assets/fb_photos/photo_016.jpg", "size_kb": 26.5, "category": "Fishing & Catches"}, {"id": 16, "filename": "photo_019.jpg", "src": "assets/fb_photos/photo_019.jpg", "size_kb": 22.8, "category": "Fishing & Catches"}, {"id": 17, "filename": "photo_020.jpg", "src": "assets/fb_photos/photo_020.jpg", "size_kb": 22.5, "category": "Fishing & Catches"}, {"id": 18, "filename": "photo_021.jpg", "src": "assets/fb_photos/photo_021.jpg", "size_kb": 22.3, "category": "Waterfront & Grounds"}, {"id": 19, "filename": "photo_022.jpg", "src": "assets/fb_photos/photo_022.jpg", "size_kb": 21.7, "category": "Waterfront & Grounds"}, {"id": 20, "filename": "photo_025.jpg", "src": "assets/fb_photos/photo_025.jpg", "size_kb": 18.2, "category": "Waterfront & Grounds"}, {"id": 21, "filename": "photo_026.jpg", "src": "assets/fb_photos/photo_026.jpg", "size_kb": 17.6, "category": "Fishing & Catches"}, {"id": 22, "filename": "photo_027.jpg", "src": "assets/fb_photos/photo_027.jpg", "size_kb": 14.9, "category": "Camp Life & Guests"}, {"id": 23, "filename": "photo_030.jpg", "src": "assets/fb_photos/photo_030.jpg", "size_kb": 13.7, "category": "Camp Life & Guests"}, {"id": 24, "filename": "photo_031.jpg", "src": "assets/fb_photos/photo_031.jpg", "size_kb": 13.6, "category": "Waterfront & Grounds"}, {"id": 25, "filename": "photo_033.jpg", "src": "assets/fb_photos/photo_033.jpg", "size_kb": 12.5, "category": "Waterfront & Grounds"}, {"id": 26, "filename": "photo_035.jpg", "src": "assets/fb_photos/photo_035.jpg", "size_kb": 12.2, "category": "Fishing & Catches"}, {"id": 27, "filename": "photo_036.jpg", "src": "assets/fb_photos/photo_036.jpg", "size_kb": 11.9, "category": "Camp Life & Guests"}, {"id": 28, "filename": "photo_037.jpg", "src": "assets/fb_photos/photo_037.jpg", "size_kb": 11.7, "category": "Waterfront & Grounds"}, {"id": 29, "filename": "photo_038.jpg", "src": "assets/fb_photos/photo_038.jpg", "size_kb": 11.6, "category": "Camp Life & Guests"}, {"id": 30, "filename": "photo_039.jpg", "src": "assets/fb_photos/photo_039.jpg", "size_kb": 11.3, "category": "Waterfront & Grounds"}, {"id": 31, "filename": "photo_040.jpg", "src": "assets/fb_photos/photo_040.jpg", "size_kb": 11.3, "category": "Waterfront & Grounds"}, {"id": 32, "filename": "photo_041.jpg", "src": "assets/fb_photos/photo_041.jpg", "size_kb": 11.1, "category": "Waterfront & Grounds"}, {"id": 33, "filename": "photo_042.jpg", "src": "assets/fb_photos/photo_042.jpg", "size_kb": 10.9, "category": "Waterfront & Grounds"}, {"id": 34, "filename": "photo_043.jpg", "src": "assets/fb_photos/photo_043.jpg", "size_kb": 10.8, "category": "Camp Life & Guests"}, {"id": 35, "filename": "photo_044.jpg", "src": "assets/fb_photos/photo_044.jpg", "size_kb": 10.8, "category": "Waterfront & Grounds"}, {"id": 36, "filename": "photo_045.jpg", "src": "assets/fb_photos/photo_045.jpg", "size_kb": 10.7, "category": "Camp Life & Guests"}, {"id": 37, "filename": "photo_046.jpg", "src": "assets/fb_photos/photo_046.jpg", "size_kb": 10.6, "category": "Waterfront & Grounds"}, {"id": 38, "filename": "photo_047.jpg", "src": "assets/fb_photos/photo_047.jpg", "size_kb": 10.6, "category": "Fishing & Catches"}, {"id": 39, "filename": "photo_049.jpg", "src": "assets/fb_photos/photo_049.jpg", "size_kb": 10.5, "category": "Camp Life & Guests"}, {"id": 40, "filename": "photo_051.jpg", "src": "assets/fb_photos/photo_051.jpg", "size_kb": 10.1, "category": "Camp Life & Guests"}, {"id": 41, "filename": "photo_053.jpg", "src": "assets/fb_photos/photo_053.jpg", "size_kb": 9.9, "category": "Fishing & Catches"}, {"id": 42, "filename": "photo_054.jpg", "src": "assets/fb_photos/photo_054.jpg", "size_kb": 9.9, "category": "Waterfront & Grounds"}, {"id": 43, "filename": "photo_055.jpg", "src": "assets/fb_photos/photo_055.jpg", "size_kb": 9.9, "category": "Fishing & Catches"}, {"id": 44, "filename": "photo_056.jpg", "src": "assets/fb_photos/photo_056.jpg", "size_kb": 9.9, "category": "Camp Life & Guests"}, {"id": 45, "filename": "photo_057.jpg", "src": "assets/fb_photos/photo_057.jpg", "size_kb": 9.8, "category": "Camp Life & Guests"}, {"id": 46, "filename": "photo_058.jpg", "src": "assets/fb_photos/photo_058.jpg", "size_kb": 9.6, "category": "Waterfront & Grounds"}, {"id": 47, "filename": "photo_060.jpg", "src": "assets/fb_photos/photo_060.jpg", "size_kb": 9.6, "category": "Waterfront & Grounds"}, {"id": 48, "filename": "photo_061.jpg", "src": "assets/fb_photos/photo_061.jpg", "size_kb": 9.6, "category": "Fishing & Catches"}, {"id": 49, "filename": "photo_062.jpg", "src": "assets/fb_photos/photo_062.jpg", "size_kb": 9.4, "category": "Camp Life & Guests"}, {"id": 50, "filename": "photo_063.jpg", "src": "assets/fb_photos/photo_063.jpg", "size_kb": 9.3, "category": "Camp Life & Guests"}, {"id": 51, "filename": "photo_064.jpg", "src": "assets/fb_photos/photo_064.jpg", "size_kb": 9.2, "category": "Waterfront & Grounds"}, {"id": 52, "filename": "photo_065.jpg", "src": "assets/fb_photos/photo_065.jpg", "size_kb": 9.1, "category": "Waterfront & Grounds"}, {"id": 53, "filename": "photo_066.jpg", "src": "assets/fb_photos/photo_066.jpg", "size_kb": 9.0, "category": "Fishing & Catches"}, {"id": 54, "filename": "photo_067.jpg", "src": "assets/fb_photos/photo_067.jpg", "size_kb": 8.9, "category": "Fishing & Catches"}, {"id": 55, "filename": "photo_068.jpg", "src": "assets/fb_photos/photo_068.jpg", "size_kb": 8.8, "category": "Waterfront & Grounds"}, {"id": 56, "filename": "photo_069.jpg", "src": "assets/fb_photos/photo_069.jpg", "size_kb": 8.8, "category": "Camp Life & Guests"}, {"id": 57, "filename": "photo_070.jpg", "src": "assets/fb_photos/photo_070.jpg", "size_kb": 8.8, "category": "Camp Life & Guests"}, {"id": 58, "filename": "photo_071.jpg", "src": "assets/fb_photos/photo_071.jpg", "size_kb": 8.3, "category": "Fishing & Catches"}, {"id": 59, "filename": "photo_072.jpg", "src": "assets/fb_photos/photo_072.jpg", "size_kb": 8.1, "category": "Waterfront & Grounds"}, {"id": 60, "filename": "photo_073.jpg", "src": "assets/fb_photos/photo_073.jpg", "size_kb": 8.0, "category": "Waterfront & Grounds"}, {"id": 61, "filename": "photo_074.jpg", "src": "assets/fb_photos/photo_074.jpg", "size_kb": 8.0, "category": "Waterfront & Grounds"}, {"id": 62, "filename": "photo_076.jpg", "src": "assets/fb_photos/photo_076.jpg", "size_kb": 7.8, "category": "Waterfront & Grounds"}, {"id": 63, "filename": "photo_077.jpg", "src": "assets/fb_photos/photo_077.jpg", "size_kb": 7.7, "category": "Fishing & Catches"}, {"id": 64, "filename": "photo_079.jpg", "src": "assets/fb_photos/photo_079.jpg", "size_kb": 7.7, "category": "Waterfront & Grounds"}, {"id": 65, "filename": "photo_081.jpg", "src": "assets/fb_photos/photo_081.jpg", "size_kb": 7.4, "category": "Camp Life & Guests"}, {"id": 66, "filename": "photo_082.jpg", "src": "assets/fb_photos/photo_082.jpg", "size_kb": 7.4, "category": "Camp Life & Guests"}, {"id": 67, "filename": "photo_083.jpg", "src": "assets/fb_photos/photo_083.jpg", "size_kb": 7.4, "category": "Fishing & Catches"}, {"id": 68, "filename": "photo_084.jpg", "src": "assets/fb_photos/photo_084.jpg", "size_kb": 7.2, "category": "Waterfront & Grounds"}, {"id": 69, "filename": "photo_087.jpg", "src": "assets/fb_photos/photo_087.jpg", "size_kb": 6.9, "category": "Waterfront & Grounds"}, {"id": 70, "filename": "photo_092.jpg", "src": "assets/fb_photos/photo_092.jpg", "size_kb": 3.0, "category": "Waterfront & Grounds"}, {"id": 71, "filename": "photo_093.jpg", "src": "assets/fb_photos/photo_093.jpg", "size_kb": 2.8, "category": "Waterfront & Grounds"}];
+
+    function renderGrid(filteredList) {
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = filteredList.map(p => `
+        <div onclick="openLightbox('${p.src}', 'Photo #${p.id} • ${p.category} (${p.size_kb} KB)')" 
+             class="group relative aspect-square bg-stone-800 rounded-lg overflow-hidden border border-stone-800 hover:border-amber-500/50 cursor-pointer shadow hover:shadow-xl transition-all">
+          <img src="${p.src}" alt="Bailey's Photo ${p.id}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-2 flex flex-col justify-end">
+            <span class="text-[11px] font-bold text-amber-400">#${p.id}</span>
+            <span class="text-[10px] text-stone-300 truncate">${p.category}</span>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function filterPhotos(cat) {
+      document.querySelectorAll('header button').forEach(b => {
+        b.className = "px-3 py-1.5 rounded bg-stone-800 text-stone-300 hover:bg-stone-700";
+      });
+      if (cat === 'all') {
+        document.getElementById('btn-all').className = "px-3 py-1.5 rounded bg-amber-600 text-white font-bold";
+        renderGrid(photos);
+      } else {
+        event.target.className = "px-3 py-1.5 rounded bg-amber-600 text-white font-bold";
+        const filtered = photos.filter(p => p.category === cat);
+        renderGrid(filtered);
+      }
+    }
+
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').textContent = caption;
+      const lb = document.getElementById('lightbox');
+      lb.classList.remove('hidden');
+      lb.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const lb = document.getElementById('lightbox');
+      lb.classList.add('hidden');
+      lb.classList.remove('flex');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    renderGrid(photos);
+  </script>
+</body>
+</html>
