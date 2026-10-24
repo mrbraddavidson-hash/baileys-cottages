@@ -107,7 +107,7 @@
       <!-- Desktop Nav -->
       <nav class="hidden lg:flex items-center gap-7 font-medium text-sm text-pine-900/80">
         <a href="#cabins" class="text-amber-700 hover:text-pine-900 hover:font-semibold transition-colors">Cabins 1 to 6</a>
-        <a href="#species" class="hover:text-pine-900 hover:font-semibold transition-colors">Fishing & Species</a>
+        <a href="#fishing" class="hover:text-pine-900 hover:font-semibold transition-colors">Fishing on Moira Lake</a>
         <a href="#calendar" class="hover:text-pine-900 hover:font-semibold transition-colors">Seasonal Calendar</a>
         <a href="#lake-map" class="hover:text-pine-900 hover:font-semibold transition-colors">Topography Map</a>
         <a href="#rentals" class="hover:text-pine-900 hover:font-semibold transition-colors">Boat & Gear Rentals</a>
@@ -203,15 +203,27 @@
     </div>
   </section>
 
+  <!-- DEDICATED FISHING SECTION -->
+  <section id="fishing" class="bg-camp-cream border-y border-camp-border" aria-labelledby="fishing-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="badge-stamp text-xs font-bold text-amber-700 block mb-2 font-cinzel">Fishing on Moira Lake</span>
+        <h2 id="fishing-heading" class="font-serif text-3xl sm:text-4xl font-bold text-pine-900 mb-4">Plan the Fishing Part of Your Stay</h2>
+        <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+          After choosing a cabin, use this guide for target species, seasonal timing, lake structure, boat rentals, and gear.
+        </p>
+      </div>
+    </div>
+
   <!-- SPECIES GUIDE SECTION: GROUPED BY SPECIES -->
   <section id="species" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-10">
-      <span class="badge-stamp text-xs font-bold text-amber-700 block mb-2 font-cinzel">Next: Fishing & Species Guide</span>
-      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-pine-900 mb-4">Then Plan Your Fishing Time</h2>
+      <span class="badge-stamp text-xs font-bold text-amber-700 block mb-2 font-cinzel">Target Species & Catch Photos</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-pine-900 mb-4">What’s Biting in Moira Lake?</h2>
       <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
-        After choosing a cabin, browse the lake’s target species, catch photographs, seasonal notes, regulations, depth zones, and local field tactics.
+        Browse the lake’s target species, catch photographs, seasonal notes, regulations, depth zones, and local field tactics.
       </p>
     </div>
 
@@ -818,6 +830,8 @@
       </div>
 
     </div>
+  </section>
+
   </section>
 
   <!-- MOIRA LAKE TOPOGRAPHY & BATHYMETRIC MAP -->
@@ -1823,7 +1837,7 @@
           <h5 class="font-cinzel text-xs font-bold text-amber-400 uppercase tracking-wider mb-3">Quick Links</h5>
           <ul class="text-xs space-y-2 text-zinc-400">
             <li><a href="#cabins" class="hover:text-white">Cabins 1 through 6</a></li>
-            <li><a href="#species" class="hover:text-white">Fishing & Target Species</a></li>
+            <li><a href="#fishing" class="hover:text-white">Fishing on Moira Lake</a></li>
             <li><a href="#calendar" class="hover:text-white">Seasonal Fishing Playbook</a></li>
             <li><a href="#rentals" class="hover:text-white">Boat & Gear Rental Rates</a></li>
             <li><a href="#local-guide" class="hover:text-white">Hidden Goldmine Bakery & Madoc</a></li>
@@ -1951,13 +1965,13 @@
     </div>
   </div>
 
-  <!-- PRIORITY ORDER: keep the complete cabin guide before the fishing guide -->
+  <!-- PRIORITY ORDER: keep the complete cabin guide before the dedicated fishing section -->
   <script>
     const cabinsSection = document.getElementById('cabins');
-    const speciesSection = document.getElementById('species');
+    const fishingSection = document.getElementById('fishing');
 
-    if (cabinsSection && speciesSection) {
-      speciesSection.before(cabinsSection);
+    if (cabinsSection && fishingSection) {
+      fishingSection.before(cabinsSection);
     }
   </script>
 
